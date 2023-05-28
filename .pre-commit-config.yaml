@@ -109,7 +109,7 @@ repos:
   - id: insert-license
     name: Insert license header in C++ source files
     args: [--license-filepath=config/limes_header.txt, --comment-style=/*| *| */, --detect-license-in-X-top-lines=16]
-    types_or: [c, c++, objective-c]
+    types_or: [c, c++]
   - id: insert-license
     name: Insert license header in CMake and shell files
     args: [--license-filepath=config/limes_header.txt, --comment-style=#, --detect-license-in-X-top-lines=16]
@@ -139,7 +139,6 @@ repos:
     args: [--cppcheck-build-dir=Builds/cppcheck, --quiet, --inline-suppr, --std=c++20, --language=c++, --force, --enable=warning, --enable=style, --enable=performance, --enable=portability, --suppress=missingIncludeSystem, --suppress=preprocessorErrorDirective, --suppress=unknownMacro]
     log_file: logs/pre-commit/cppcheck.log
     types_or: [c, c++]
-    exclude: .mm
 
   - id: cpplint
     args: [--verbose=0, '--filter=-whitespace,-legal,-build/include,+build/include_order,-build/c++11,-build/header_guard,-build/explicit_make_pair,-runtime/references,-readability/braces,-readability/todo']
@@ -176,7 +175,6 @@ repos:
   - id: destroyed-symlinks
   - id: detect-private-key
   - id: end-of-file-fixer
-    exclude: tests/data/lines.txt
   - id: fix-byte-order-marker
   - id: forbid-submodules
   - id: mixed-line-ending

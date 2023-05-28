@@ -66,9 +66,8 @@ set (DOXYGEN_USE_MDFILE_AS_MAINPAGE "${CMAKE_CURRENT_LIST_DIR}/../README.md")
 
 doxygen_add_docs (
 	lharmony_docs ${headers} ${examples} "${DOXYGEN_USE_MDFILE_AS_MAINPAGE}" USE_STAMP_FILE
-	WORKING_DIRECTORY "${CMAKE_CURRENT_LIST_DIR}/.."
-	COMMENT "Building lharmony documentation...")
+	WORKING_DIRECTORY "${CMAKE_CURRENT_LIST_DIR}/.." COMMENT "Building lharmony documentation...")
 
 set_property (
 	TARGET lharmony_docs APPEND PROPERTY ADDITIONAL_CLEAN_FILES "${DOXYGEN_OUTPUT_DIRECTORY}"
-											"${DOXYGEN_WARN_LOGFILE}")
+										 "${DOXYGEN_WARN_LOGFILE}")

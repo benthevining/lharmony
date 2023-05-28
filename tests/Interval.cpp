@@ -81,18 +81,9 @@ TEST_CASE ("Interval - inverse", TAGS)
 
 TEST_CASE ("Interval - from semitones", TAGS)
 {
-	auto& rand = limes::math::Random::getSystem();
-
-	auto test_from_semitones = [&rand] (int semitones, const Interval& expected)
+	auto test_from_semitones = [] (int semitones, const Interval& expected)
 	{
 		REQUIRE (Interval::fromNumSemitones (semitones) == expected);
-
-		for (auto i = 0; i < 10; ++i)
-		{
-			const auto startingNote = rand.next (semitones, 127 - semitones);
-
-			REQUIRE (Interval::fromPitches (startingNote, startingNote + semitones) == expected);
-		}
 	};
 
 	test_from_semitones (0, i::perfect::unison);

@@ -14,7 +14,7 @@
 
 #pragma once
 
-#include <vector>		
+#include <vector>
 #include <string>
 #include "lharmony/lharmony_Export.h"
 #include "lharmony/lharmony_Pitch.h"
@@ -92,11 +92,11 @@ public:
 	/** Destructor. */
 	virtual ~Interval() = default;
 
-	constexpr Interval (const Interval&) = default;
-	constexpr Interval& operator=(const Interval&) = default;
+	Interval (const Interval&) = default;
+	Interval& operator=(const Interval&) = default;
 
-	constexpr Interval (Interval&&) = default;
-	constexpr Interval& operator=(Interval&&) = default;
+	Interval (Interval&&) = default;
+	Interval& operator=(Interval&&) = default;
 
 	/** Describes the quality of the %interval.
 		Note that not all possible quality values are valid for every possible %interval type; a "major fifth" or a "perfect third" do not exist.
@@ -111,11 +111,14 @@ public:
 		Perfect		 ///< A perfect interval.
 	};
 
+	/** Returns a string description of the specified interval quality. */
+	[[nodiscard]] static std::string qualityToString (Quality q, bool useShort = false);
+
 	/** @name Constructors */
 	///@{
 
 	/** Creates an %interval representing a perfect unison. */
-	constexpr Interval() noexcept;
+	Interval() noexcept;
 
 	/** Creates an %interval with a specified kind and quality.
 		If the kind or quality parameters are invalid, an assertion will be thrown.
@@ -123,7 +126,7 @@ public:
 		@param qualityToUse The quality of %interval to create. Note that not all possible quality values are valid for every possible %interval type; a "major fifth" or a "perfect third" do not exist.
 		@see isValidQualityForKind()
 	 */
-	Interval (int kindToUse, Quality qualityToUse) noexcept;
+	Interval (int kindToUse, Quality qualityToUse);
 
 	///@}
 
@@ -157,13 +160,13 @@ public:
 		Note that this will return false for intervals that represent the same number of semitones but are spelled differently.
 		@see isEnharmonicTo()
 	 */
-	[[nodiscard]] constexpr bool operator== (const Interval& other) const noexcept;
+	[[nodiscard]] bool operator== (const Interval& other) const noexcept;
 
 	/** Returns true if the two intervals are not exactly equal.
 		Note that this will return true for intervals that represent the same number of semitones but are spelled differently.
 		@see isEnharmonicTo()
 	 */
-	[[nodiscard]] constexpr bool operator!= (const Interval& other) const noexcept;
+	[[nodiscard]] bool operator!= (const Interval& other) const noexcept;
 
 	/** Returns true if the two intervals represent the same number of semitones, regardless of their enharmonic spelling.
 		For example, a diminished fifth is enharmonic to an augmented fourth.
@@ -202,7 +205,7 @@ public:
 		A perfect octave will increment to an augmented octave.
 		Calling the increment operator on an augmented octave will do nothing.
 	 */
-	constexpr Interval& operator++() noexcept;
+	Interval& operator++() noexcept;
 
 	///@}
 
@@ -226,7 +229,7 @@ public:
 		In the special case of a diminished second, it will decrement to a perfect unison (even though these two intervals are enharmonically equivalent).
 		Calling the decrement operator on a perfect unison will do nothing.
 	 */
-	constexpr Interval& operator--() noexcept;
+	Interval& operator--() noexcept;
 
 	///@}
 
@@ -298,12 +301,40 @@ public:
 	[[nodiscard]] static constexpr bool isValidQualityForKind (Quality quality, int kind) noexcept;
 
 private:
-	[[nodiscard]] constexpr bool intervalIsPerfectKind() const noexcept;
+	[[nodiscard]] bool intervalIsPerfectKind() const noexcept;
 
 	Quality quality { Quality::Major };
 
 	int kind { 0 };
 };
+
+constexpr bool Interval::isValidQualityForKind (Quality quality, int kind) noexcept
+{
+	if (kind == 1)
+		return false;
+
+	const auto baseKind = [k = kind]  // NOLINT
+	{
+		const auto base = k % 8;
+
+		if (k > 8)
+			return base + (k / 8);
+
+		return base;
+	}();
+
+	if (baseKind == 0 || baseKind == 4 || baseKind == 5)
+	{
+		const auto base = quality != Quality::Major && quality != Quality::Minor;
+
+		if (kind == 0)
+			return base && quality != Quality::Diminished;
+
+		return base;
+	}
+
+	return quality != Quality::Perfect;
+}
 
 
 /** Adds an interval to the given pitch and returns a new pitch object at the resulting pitch.
@@ -325,5 +356,3 @@ LHARM_EXPORT Pitch operator- (const Pitch& pitch, const Interval& interval) noex
 LHARM_EXPORT std::ostream& operator<< (std::ostream& os, const Interval& value);
 
 }  // namespace limes::harmony
-
-#include "./lharmony_Interval_impl.h"  // IWYU pragma: export

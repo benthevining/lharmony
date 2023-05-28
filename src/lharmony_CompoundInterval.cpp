@@ -12,12 +12,12 @@
  * ======================================================================================
  */
 
-#include <cmath>				  
+#include <cmath>
 #include <sstream>
 #include <stdexcept>
-#include "lharmony/lharmony_Pitch.h"		 
-#include "lharmony/lharmony_PitchUtils.h"  
-#include "lharmony/lharmony_Interval.h"			 
+#include "lharmony/lharmony_Pitch.h"
+#include "lharmony/lharmony_PitchUtils.h"
+#include "lharmony/lharmony_Interval.h"
 #include "lharmony/lharmony_CompoundInterval.h"
 
 namespace limes::harmony
@@ -40,12 +40,12 @@ CompoundInterval::CompoundInterval (int octaves, const Interval& simpleInterval)
 	}
 }
 
-CompoundInterval::CompoundInterval (int kindToUse, Interval::Quality qualityToUse) noexcept
+CompoundInterval::CompoundInterval (int kindToUse, Interval::Quality qualityToUse)
 {
 	if (! Interval::isValidQualityForKind (qualityToUse, kindToUse))
 	{
 		std::stringstream str;
-		str << "Cannot construct CompoundInterval - quality " << qualityToUse << " is invalid for kind " << kindToUse;
+		str << "Cannot construct CompoundInterval - quality " << Interval::qualityToString (qualityToUse) << " is invalid for kind " << kindToUse;
 		throw std::runtime_error { str.str() };
 	}
 

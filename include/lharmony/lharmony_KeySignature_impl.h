@@ -37,12 +37,12 @@ constexpr KeySignature::KeySignature (Type typeToUse, bool isSharps, PitchClass 
 {
 	struct MajorMinorPair final
 	{
-		int numMajorAccidentals, numMinorAccidentals;
+		int numMajorAccidentals, numMinorAccidentals; // cppcheck-suppress unusedStructMember
 	};
 
-	const auto pair = [root = pitchClassOfRoot.getAsInt(), isFlat]() -> MajorMinorPair
+	const auto pair = [root = pitchClassOfRoot.getAsInt(), flat = isFlat]() -> MajorMinorPair
 	{
-		if (isFlat)
+		if (flat)
 		{
 			switch (root)
 			{

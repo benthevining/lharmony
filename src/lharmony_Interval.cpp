@@ -14,18 +14,19 @@
 
 #include <sstream>
 #include <stdexcept>
+#include <cmath>
 #include "lharmony/lharmony_Interval.h"
-#include "lharmony/lharmony_Pitch.h"		 
-#include "lharmony/lharmony_PitchUtils.h" 
-#include "lharmony/lharmony_Interval_impl.h"	
+#include "lharmony/lharmony_Pitch.h"
+#include "lharmony/lharmony_PitchUtils.h"
+#include "lharmony/lharmony_Interval_impl.h"
 
 namespace limes::harmony
 {
 
-Interval::Interval (int kindToUse, Quality qualityToUse) noexcept
+Interval::Interval (int kindToUse, Quality qualityToUse)
 	: quality (qualityToUse), kind (kindToUse % 9)
 {
-	if (! (kind > 1 && kind <= 8))
+	if (! (kind >= 0 && kind <= 8 && kind != 1))
 	{
 		std::stringstream str;
 		str << "Interval - invalid kind " << kind;
@@ -35,8 +36,183 @@ Interval::Interval (int kindToUse, Quality qualityToUse) noexcept
 	if (! isValidQualityForKind (quality, kind))
 	{
 		std::stringstream str;
-		str << "Interval: invalid quality " << quality << " for kind " << kind;
+		str << "Interval: invalid quality " << qualityToString (quality) << " for kind " << kind;
 		throw std::runtime_error { str.str() };
+	}
+}
+
+Interval::Interval() noexcept
+: Interval (0, Quality::Perfect)
+{
+}
+
+bool Interval::intervalIsPerfectKind() const noexcept
+{
+	return kind == 0 || kind == 4 || kind == 5 || kind == 8;
+}
+
+bool Interval::operator== (const Interval& other) const noexcept
+{
+	return kind == other.kind && quality == other.quality;
+}
+
+bool Interval::operator!= (const Interval& other) const noexcept
+{
+	return ! (*this == other);
+}
+
+Interval& Interval::operator++() noexcept
+{
+	if (kind == 8 && quality == Quality::Augmented)
+		return *this;
+
+	auto incrementKind = [this]
+	{
+		const auto wasFourth = kind == 4;
+
+		++kind;
+
+		if (kind == 1)
+			kind = 2;
+
+		if (intervalIsPerfectKind())
+		{
+			if (wasFourth)
+				quality = Quality::Perfect;
+			else
+				quality = Quality::Augmented;
+		}
+		else
+		{
+			quality = Quality::Major;
+		}
+	};
+
+	if (intervalIsPerfectKind())
+	{
+		switch (quality)
+		{
+			case (Quality::Perfect) :
+			{
+				quality = Quality::Augmented;
+				return *this;
+			}
+			case (Quality::Augmented) :
+			{
+				incrementKind();
+				return *this;
+			}
+			case (Quality::Diminished) :
+			{
+				quality = Quality::Perfect;
+				return *this;
+			}
+		}
+	}
+
+	switch (quality)
+	{
+		case (Quality::Major) :
+		{
+			quality = Quality::Augmented;
+			return *this;
+		}
+		case (Quality::Minor) :
+		{
+			quality = Quality::Major;
+			return *this;
+		}
+		case (Quality::Augmented) :
+		{
+			incrementKind();
+			return *this;
+		}
+		case (Quality::Diminished) :
+		{
+			quality = Quality::Minor;
+			return *this;
+		}
+	}
+}
+
+Interval& Interval::operator--() noexcept
+{
+	if (kind == 0 && quality == Quality::Perfect)
+		return *this;
+
+	if (kind == 2 && quality == Quality::Diminished)
+	{
+		kind	= 0;
+		quality = Quality::Perfect;
+		return *this;
+	}
+
+	auto decrementKind = [this]
+	{
+		const auto wasFifth = kind == 5;
+
+		--kind;
+
+		if (kind == 1)
+			kind = 0;
+
+		if (intervalIsPerfectKind())
+		{
+			if (wasFifth)
+				quality = Quality::Perfect;
+			else
+				quality = Quality::Diminished;
+		}
+		else
+		{
+			quality = Quality::Minor;
+		}
+	};
+
+	if (intervalIsPerfectKind())
+	{
+		switch (quality)
+		{
+			case (Quality::Perfect) :
+			{
+				quality = Quality::Diminished;
+				return *this;
+			}
+			case (Quality::Augmented) :
+			{
+				quality = Quality::Perfect;
+				return *this;
+			}
+			case (Quality::Diminished) :
+			{
+				decrementKind();
+				return *this;
+			}
+		}
+	}
+
+	switch (quality)
+	{
+		case (Quality::Major) :
+		{
+			quality = Quality::Minor;
+			return *this;
+		}
+		case (Quality::Minor) :
+		{
+			quality = Quality::Diminished;
+			return *this;
+		}
+		case (Quality::Augmented) :
+		{
+			quality = Quality::Major;
+			return *this;
+		}
+		case (Quality::Diminished) :
+		{
+			decrementKind();
+			return *this;
+		}
 	}
 }
 
@@ -45,7 +221,7 @@ Interval Interval::fromNumSemitones (int semitones) noexcept
 	if (semitones == 13 || semitones == -13)
 		return Interval { 8, Quality::Augmented };
 
-	switch (math::abs (semitones) % (semitonesInOctave + 1))
+	switch (std::abs (semitones) % (semitonesInOctave + 1))
 	{
 		case (0) : return Interval { 0, Quality::Perfect };
 		case (1) : return Interval { 2, Quality::Minor };
@@ -166,46 +342,53 @@ Pitch Interval::applyToPitch (Pitch other, bool above) const noexcept
 	return Pitch { starting - semitones };
 }
 
+std::string Interval::qualityToString (Quality q, bool useShort)
+{
+	if (useShort)
+	{
+		switch (q)
+		{
+			case (Quality::Diminished) : return "d";
+			case (Quality::Minor) : return "m";
+			case (Quality::Major) : return "M";
+			case (Quality::Augmented) : return "A";
+			case (Quality::Perfect) : return "P";
+		}
+	}
+
+	switch (q)
+	{
+		case (Quality::Diminished) : return "Diminished";
+		case (Quality::Minor) : return "Minor";
+		case (Quality::Major) : return "Major";
+		case (Quality::Augmented) : return "Augmented";
+		case (Quality::Perfect) : return "Perfect";
+	}
+}
+
 std::string Interval::getStringDescription (bool useShort) const
 {
 	std::stringstream stream;
 
+	stream << qualityToString (quality, useShort);
+
 	if (useShort)
 	{
-		switch (quality)
-		{
-			case (Quality::Diminished) : stream << 'd'; break;
-			case (Quality::Minor) : stream << 'm'; break;
-			case (Quality::Major) : stream << 'M'; break;
-			case (Quality::Augmented) : stream << 'A'; break;
-			case (Quality::Perfect) : stream << 'P'; break;
-		}
-
 		stream << kind;
-
-		return stream.str();
 	}
-
-	switch (quality)
+	else
 	{
-		case (Quality::Diminished) : stream << "Diminished"; break;
-		case (Quality::Minor) : stream << "Minor"; break;
-		case (Quality::Major) : stream << "Major"; break;
-		case (Quality::Augmented) : stream << "Augmented"; break;
-		case (Quality::Perfect) : stream << "Perfect"; break;
-	}
-
-	switch (kind)
-	{
-		case (0) : stream << "unison"; break;
-		case (1) : LIMES_ASSERT_FALSE; break;
-		case (2) : stream << "second"; break;
-		case (3) : stream << "third"; break;
-		case (4) : stream << "fourth"; break;
-		case (5) : stream << "fifth"; break;
-		case (6) : stream << "sixth"; break;
-		case (7) : stream << "seventh"; break;
-		case (8) : stream << "octave"; break;
+		switch (kind)
+		{
+			case (0) : stream << "unison"; break;
+			case (2) : stream << "second"; break;
+			case (3) : stream << "third"; break;
+			case (4) : stream << "fourth"; break;
+			case (5) : stream << "fifth"; break;
+			case (6) : stream << "sixth"; break;
+			case (7) : stream << "seventh"; break;
+			case (8) : stream << "octave"; break;
+		}
 	}
 
 	return stream.str();
@@ -219,24 +402,26 @@ std::ostream& operator<< (std::ostream& os, const Interval& value)
 
 int Interval::getNumSemitones() const noexcept
 {
-	auto major_or_minor = [quality] (int baseSemitones) -> int
+	auto major_or_minor = [q = quality] (int baseSemitones) -> int
 	{
-		switch (quality)
+		switch (q)
 		{
 			case (Quality::Major) : return baseSemitones;
 			case (Quality::Minor) : return baseSemitones - 1;
 			case (Quality::Augmented) : return baseSemitones + 1;
 			case (Quality::Diminished) : return baseSemitones - 2;
+			default: return 0; // unreachable
 		}
 	};
 
-	auto perfect = [quality] (int baseSemitones) -> int
+	auto perfect = [q = quality] (int baseSemitones) -> int
 	{
-		switch (quality)
+		switch (q)
 		{
 			case (Quality::Perfect) : return baseSemitones;
 			case (Quality::Augmented) : return baseSemitones + 1;
 			case (Quality::Diminished) : return baseSemitones - 1;
+			default: return 0; // unreachable
 		}
 	};
 

@@ -14,8 +14,8 @@
 
 #include <algorithm>
 #include "lharmony/lharmony_Mode.h"
-#include "lharmony/lharmony_KeySignature.h"		  
-#include "lharmony/lharmony_PitchClass.h"  
+#include "lharmony/lharmony_KeySignature.h"
+#include "lharmony/lharmony_PitchClass.h"
 
 namespace limes::harmony::scales
 {

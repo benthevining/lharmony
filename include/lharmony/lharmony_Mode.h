@@ -16,9 +16,9 @@
 
 #include <vector>
 #include "lharmony/lharmony_Export.h"
-#include "lharmony/lharmony_KeySignature.h"		 
-#include "lharmony/lharmony_Scale.h"			
-#include "lharmony/lharmony_PitchClass.h"  
+#include "lharmony/lharmony_KeySignature.h"
+#include "lharmony/lharmony_Scale.h"
+#include "lharmony/lharmony_PitchClass.h"
 
 /** @file
 	This file defines the Mode %scale class.

@@ -14,9 +14,9 @@
 
 #pragma once
 
-#include <vector>		
-#include "lharmony/lharmony_Export.h" 
-#include "lharmony/lharmony_Interval.h"	 
+#include <vector>
+#include "lharmony/lharmony_Export.h"
+#include "lharmony/lharmony_Interval.h"
 
 /** @file
 	This file defines the \c CompoundInterval class.
@@ -51,7 +51,7 @@ public:
 	CompoundInterval (int octaves, const Interval& simpleInterval) noexcept;
 
 	/** Creates a compound %interval from a given kind and quality, eg, major ninth, etc. */
-	CompoundInterval (int kindToUse, Interval::Quality qualityToUse) noexcept;
+	CompoundInterval (int kindToUse, Interval::Quality qualityToUse);
 
 	/** Constructs a compound %interval with the given number of semitones. */
 	explicit CompoundInterval (int numSemitones) noexcept;
@@ -67,10 +67,10 @@ public:
 	///@}
 
 	constexpr CompoundInterval (const CompoundInterval&) = default;
-	constexpr CompoundInterval& operator=(const CompoundInterval&) = default;
+	CompoundInterval& operator=(const CompoundInterval&) = default;
 
 	constexpr CompoundInterval (CompoundInterval&&) = default;
-	constexpr CompoundInterval& operator=(CompoundInterval&&) = default;
+	CompoundInterval& operator=(CompoundInterval&&) = default;
 
 	/** Returns true if the two compound intervals are exactly equal; that is, have the same number of octaves, and their simple %interval components are exactly equal in kind and quality. */
 	[[nodiscard]] constexpr bool operator== (const CompoundInterval& other) const noexcept;

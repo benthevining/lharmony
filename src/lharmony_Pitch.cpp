@@ -12,10 +12,10 @@
  * ======================================================================================
  */
 
-#include <cmath>		
+#include <cmath>
 #include "lharmony/lharmony_Pitch.h"
-#include "lharmony/lharmony_PitchClass.h"  
-#include "lharmony/lharmony_PitchUtils.h"  
+#include "lharmony/lharmony_PitchClass.h"
+#include "lharmony/lharmony_PitchUtils.h"
 #include "lharmony/lharmony_Interval.h"
 
 namespace limes::harmony

@@ -31,15 +31,8 @@ add_executable (lharmony_tests)
 
 set_target_properties (lharmony_tests PROPERTIES MACOSX_BUNDLE OFF)
 
-target_sources (
-	lharmony_tests
-	PRIVATE
-	CompoundInterval.cpp
-	Interval.cpp
-	KeySignature.cpp
-	Mode.cpp
-	Pitch.cpp
-	PitchUtils.cpp)
+target_sources (lharmony_tests PRIVATE CompoundInterval.cpp Interval.cpp KeySignature.cpp Mode.cpp
+									   Pitch.cpp PitchUtils.cpp)
 
 target_link_libraries (lharmony_tests PRIVATE Catch2::Catch2WithMain limes::lharmony)
 

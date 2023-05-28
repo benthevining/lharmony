@@ -16,6 +16,7 @@
 
 #include <array>
 #include <string_view>
+#include <iostream>
 #include "lharmony/lharmony_Export.h"
 #include "lharmony/lharmony_PitchUtils.h"
 

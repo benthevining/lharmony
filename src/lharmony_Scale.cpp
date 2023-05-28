@@ -16,8 +16,8 @@
 #include "lharmony/lharmony_Scale.h"
 #include "lharmony/lharmony_PitchUtils.h"
 #include "lharmony/lharmony_Interval.h"
-#include "lharmony/lharmony_Pitch.h"			
-#include "lharmony/lharmony_PitchClass.h"	
+#include "lharmony/lharmony_Pitch.h"
+#include "lharmony/lharmony_PitchClass.h"
 
 namespace limes::harmony::scales
 {
@@ -38,7 +38,7 @@ std::vector<Interval> Scale::getIntervals() const
 
 	std::vector<Interval> intervals;
 
-	std::transform (std::begin (semitones), std::end (semitones), std::begin (intervals), 
+	std::transform (std::begin (semitones), std::end (semitones), std::begin (intervals),
 					[] (const auto interval) { return Interval::fromNumSemitones (interval); });
 
 	return intervals;
@@ -94,7 +94,7 @@ std::vector<Pitch> Scale::getPitches (int octaveNumber) const
 
 	const auto semitones = getIntervalsAsSemitones();
 
-	std::transform (std::begin (semitones), std::end (semitones), std::begin (pitches), 
+	std::transform (std::begin (semitones), std::end (semitones), std::begin (pitches),
 					[startingNote] (const auto interval) { return Pitch { startingNote + interval }; });
 
 	return pitches;

@@ -16,15 +16,15 @@
 #include "lharmony/lharmony_Chord.h"
 #include "lharmony/lharmony_PitchClass.h"
 #include "lharmony/lharmony_Interval.h"
-#include "lharmony/lharmony_Scale.h"	
-#include "lharmony/lharmony_Pitch.h"		
+#include "lharmony/lharmony_Scale.h"
+#include "lharmony/lharmony_Pitch.h"
 
 namespace limes::harmony
 {
 
 Chord::Chord (const std::initializer_list<int>& midiNotes)
 {
-	std::transform (std::begin (midiNotes), std::end (midiNotes), std::begin (pitches), 
+	std::transform (std::begin (midiNotes), std::end (midiNotes), std::begin (pitches),
 					[] (const auto midiNote) { return Pitch { midiNote }; });
 
 	pitches.erase (std::unique (std::begin (pitches), std::end (pitches)), std::end (pitches));
@@ -57,7 +57,7 @@ Pitch Chord::getHighestPitch() const
 
 bool Chord::contains (PitchClass pitchClass) const noexcept
 {
-	return std::find_if (std::begin (pitches), std::end (pitches), 
+	return std::find_if (std::begin (pitches), std::end (pitches),
 						 [pitchClass] (const Pitch p)
 						 { return p.getPitchClass() == pitchClass; })
 			!= std::end (pitches);
@@ -70,9 +70,9 @@ bool Chord::contains (Pitch pitch) const noexcept
 
 bool Chord::contains (int midiNote) const noexcept
 {
-	return std::find_if (std::begin (pitches), std::end (pitches), 
+	return std::find_if (std::begin (pitches), std::end (pitches),
 						 [midiNote] (const Pitch p)
-						 { return p.getRoundedMidiPitch() == midiNote; }) 
+						 { return p.getRoundedMidiPitch() == midiNote; })
 			!= std::end (pitches);
 }
 
@@ -97,7 +97,7 @@ std::vector<PitchClass> Chord::getPitchClasses() const
 {
 	std::vector<PitchClass> pitchClasses;
 
-	std::transform (std::begin (pitches), std::end (pitches), std::begin (pitchClasses), 
+	std::transform (std::begin (pitches), std::end (pitches), std::begin (pitchClasses),
 					[] (const Pitch pitch) { return pitch.getPitchClass(); });
 
 	pitchClasses.erase (std::unique (std::begin (pitchClasses), std::end (pitchClasses)), std::end (pitchClasses));

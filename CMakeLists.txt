@@ -9,8 +9,8 @@ project (
 
 include (CMakeDependentOption)
 
-cmake_dependent_option (LHARM_TESTS "Build the lharmony tests" "${lharmony_IS_TOP_LEVEL}"
-						"NOT IOS" OFF)
+cmake_dependent_option (LHARM_TESTS "Build the lharmony tests" "${lharmony_IS_TOP_LEVEL}" "NOT IOS"
+						OFF)
 
 option (LHARM_DOCS "Build the lharmony docs" "${lharmony_IS_TOP_LEVEL}")
 
@@ -49,7 +49,6 @@ set (
 	include/lharmony/lharmony_CompoundInterval.h
 	include/lharmony/lharmony_CompoundInterval_impl.h
 	include/lharmony/lharmony_Interval.h
-	include/lharmony/lharmony_Interval_impl.h
 	include/lharmony/lharmony_IntervalConstants.h
 	include/lharmony/lharmony_KeySignature.h
 	include/lharmony/lharmony_KeySignature_impl.h
@@ -97,8 +96,7 @@ add_subdirectory (src)
 install (
 	TARGETS lharmony
 	EXPORT lharmony
-	LIBRARY DESTINATION "${CMAKE_INSTALL_LIBDIR}" COMPONENT lharmony
-			NAMELINK_COMPONENT lharmony_dev
+	LIBRARY DESTINATION "${CMAKE_INSTALL_LIBDIR}" COMPONENT lharmony NAMELINK_COMPONENT lharmony_dev
 	ARCHIVE DESTINATION "${CMAKE_INSTALL_LIBDIR}" COMPONENT lharmony_dev
 	RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}" COMPONENT lharmony
 	INCLUDES

@@ -16,8 +16,8 @@
 
 #include <vector>
 #include "lharmony/lharmony_Export.h"
-#include "lharmony/lharmony_Pitch.h"		  
-#include "lharmony/lharmony_PitchClass.h"  
+#include "lharmony/lharmony_Pitch.h"
+#include "lharmony/lharmony_PitchClass.h"
 
 /** @defgroup lharmony_scales Scales
 	Utilities for working with musical scales.
@@ -58,7 +58,7 @@ namespace limes::harmony::scales
 	@todo withAccidentals() or withPitchClasses()
 	@todo operator<< for std::ostream (toString method)
  */
-struct LIMES_EXPORT Scale
+struct LHARM_EXPORT Scale
 {
 	/** Default constructor. */
 	constexpr Scale() = default;

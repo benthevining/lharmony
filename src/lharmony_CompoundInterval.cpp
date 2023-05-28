@@ -122,4 +122,9 @@ int CompoundInterval::getNumSemitones() const noexcept
 	return interval.getNumSemitones() + (numOctaves * semitonesInOctave);
 }
 
+bool CompoundInterval::hasSameSimpleInterval (const CompoundInterval& other) const noexcept
+{
+	return interval == other.interval;
+}
+
 }  // namespace limes::harmony

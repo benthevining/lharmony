@@ -47,7 +47,7 @@ public:
 	/** Returns a specified harmonic of this overtone series.
 		@todo support microtunings?
 	 */
-	[[nodiscard]] constexpr Pitch getHarmonic (size_t degree) const noexcept
+	[[nodiscard]] inline Pitch getHarmonic (size_t degree) const noexcept
 	{
 		return Pitch::fromFreq (fundamental.getFreqHz() * static_cast<double> (degree));
 	}

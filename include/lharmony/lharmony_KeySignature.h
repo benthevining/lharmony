@@ -120,6 +120,8 @@ public:
 
 	///@}
 
+	~KeySignature() final = default;
+
 	KeySignature (const KeySignature&) = default;
 	KeySignature& operator=(const KeySignature&) = default;
 

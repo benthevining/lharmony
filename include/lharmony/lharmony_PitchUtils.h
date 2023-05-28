@@ -56,7 +56,7 @@ LHARM_EXPORT constinit const auto semitonesInOctave = 12;
 
 	@see lowestNoteOfMidiOctave
  */
-LHARM_EXPORT static inline int octaveNumberOfMidiNote (int midiNote) noexcept
+LHARM_EXPORT inline int octaveNumberOfMidiNote (int midiNote) noexcept
 {
 	return static_cast<int> (std::floor (static_cast<float> (midiNote) / 12.f - 1.f));
 }

@@ -100,7 +100,7 @@ public:
 		For example, a major tenth and a major seventeenth would return true, because they are both compound major thirds.
 		@see getSimpleInterval()
 	 */
-	[[nodiscard]] constexpr bool hasSameSimpleInterval (const CompoundInterval& other) const noexcept;
+	[[nodiscard]] bool hasSameSimpleInterval (const CompoundInterval& other) const noexcept;
 
 	/** Returns the quality of this compound %interval.
 		The quality of compound intervals is determined by the quality of their simple %interval components; this is identical to calling:

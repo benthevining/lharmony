@@ -1,0 +1,17 @@
+<map id="lharmony_KeySignature.h" name="lharmony_KeySignature.h">
+<area shape="rect" id="node1" title="This file defines the KeySignature scale class." alt="" coords="171,5,360,32"/>
+<area shape="rect" id="node2" title=" " alt="" coords="43,169,106,196"/>
+<area shape="rect" id="node3" title=" " alt="" coords="40,393,251,420"/>
+<area shape="rect" id="node4" href="$lharmony__Scale_8h.html" title="This file defines the Scale class." alt="" coords="163,87,367,114"/>
+<area shape="rect" id="node7" href="$lharmony__PitchClass_8h.html" title="This file defines the PitchClass class." alt="" coords="383,244,619,271"/>
+<area shape="rect" id="node15" href="$lharmony__KeySignature__impl_8h.html" title="This file contains implementation details for the KeySignature class." alt="" coords="510,80,695,121"/>
+<area shape="rect" id="node5" href="$lharmony__Pitch_8h.html" title="This file defines the Pitch class." alt="" coords="182,169,383,196"/>
+<area shape="rect" id="node6" title=" " alt="" coords="283,244,359,271"/>
+<area shape="rect" id="node11" href="$lharmony__PitchUtils_8h.html" title="This file contains miscellaneous pitch utilities." alt="" coords="283,319,514,345"/>
+<area shape="rect" id="node8" title=" " alt="" coords="572,393,628,420"/>
+<area shape="rect" id="node9" title=" " alt="" coords="590,319,687,345"/>
+<area shape="rect" id="node10" title=" " alt="" coords="712,319,792,345"/>
+<area shape="rect" id="node12" title=" " alt="" coords="361,393,431,420"/>
+<area shape="rect" id="node13" title=" " alt="" coords="455,393,547,420"/>
+<area shape="rect" id="node14" title=" " alt="" coords="274,393,337,420"/>
+</map>

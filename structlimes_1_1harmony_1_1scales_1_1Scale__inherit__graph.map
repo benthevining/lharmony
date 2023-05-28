@@ -1,0 +1,8 @@
+<map id="limes::harmony::scales::Scale" name="limes::harmony::scales::Scale">
+<area shape="rect" id="node1" title="A base class for any kind of musical scale." alt="" coords="5,136,177,177"/>
+<area shape="rect" id="node2" href="$classlimes_1_1harmony_1_1scales_1_1Chromatic.html" title="A class representing a chromatic scale." alt="" coords="225,5,397,47"/>
+<area shape="rect" id="node3" href="$classlimes_1_1harmony_1_1scales_1_1KeySignature.html" title="This class represents any traditional Western key signature (eg, major, natural minor,..." alt="" coords="225,71,397,112"/>
+<area shape="rect" id="node4" href="$classlimes_1_1harmony_1_1scales_1_1Mode.html" title="This class represents a church mode scale." alt="" coords="225,136,397,177"/>
+<area shape="rect" id="node5" href="$classlimes_1_1harmony_1_1scales_1_1Octatonic.html" title="Represents an octatonic scale." alt="" coords="225,201,397,243"/>
+<area shape="rect" id="node6" href="$classlimes_1_1harmony_1_1scales_1_1WholeTone.html" title="A class that represents a whole tone scale." alt="" coords="225,267,397,308"/>
+</map>

@@ -1,0 +1,10 @@
+<map id="lharmony_Scale.h" name="lharmony_Scale.h">
+<area shape="rect" id="node1" title="This file defines the Scale class." alt="" coords="375,5,514,32"/>
+<area shape="rect" id="node2" href="$lharmony_8h_source.html" title=" " alt="" coords="349,229,444,256"/>
+<area shape="rect" id="node3" href="$lharmony__Chromatic_8h.html" title="This file defines the Chromatic scale class." alt="" coords="23,155,194,181"/>
+<area shape="rect" id="node4" href="$lharmony__KeySignature_8h.html" title="This file defines the KeySignature scale class." alt="" coords="284,80,474,107"/>
+<area shape="rect" id="node6" href="$lharmony__Mode_8h.html" title="This file defines the Mode scale class." alt="" coords="548,155,687,181"/>
+<area shape="rect" id="node7" href="$lharmony__Octatonic_8h.html" title="This file defines the Octatonic scale class." alt="" coords="548,80,714,107"/>
+<area shape="rect" id="node8" href="$lharmony__WholeTone_8h.html" title="This file defines the WholeTone scale class." alt="" coords="738,80,913,107"/>
+<area shape="rect" id="node5" href="$lharmony__KeySignatureConstants_8h.html" title="This file contains some useful predefined key signatures." alt="" coords="269,155,524,181"/>
+</map>

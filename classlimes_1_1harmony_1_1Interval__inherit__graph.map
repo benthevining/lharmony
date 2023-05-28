@@ -1,0 +1,4 @@
+<map id="limes::harmony::Interval" name="limes::harmony::Interval">
+<area shape="rect" id="node1" title="A class that represents a musical interval between two pitches." alt="" coords="15,5,197,32"/>
+<area shape="rect" id="node2" href="$classlimes_1_1harmony_1_1CompoundInterval.html" title="A class for representing intervals larger than an octave." alt="" coords="5,80,207,121"/>
+</map>

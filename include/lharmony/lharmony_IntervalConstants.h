@@ -39,16 +39,16 @@ namespace perfect
 {
 
 /** A perfect unison. */
-LHARM_EXPORT static const Interval unison { 0, Interval::Quality::Perfect };
+LHARM_EXPORT const Interval unison { 0, Interval::Quality::Perfect };
 
 /** A perfect fourth. */
-LHARM_EXPORT static const Interval fourth { 4, Interval::Quality::Perfect };
+LHARM_EXPORT const Interval fourth { 4, Interval::Quality::Perfect };
 
 /** A perfect fifth. */
-LHARM_EXPORT static const Interval fifth { 5, Interval::Quality::Perfect };
+LHARM_EXPORT const Interval fifth { 5, Interval::Quality::Perfect };
 
 /** A perfect octave. */
-LHARM_EXPORT static const Interval octave { 8, Interval::Quality::Perfect };
+LHARM_EXPORT const Interval octave { 8, Interval::Quality::Perfect };
 
 }  // namespace perfect
 
@@ -57,25 +57,25 @@ namespace diminished
 {
 
 /** A diminished second. */
-LHARM_EXPORT static const Interval second { 2, Interval::Quality::Diminished };
+LHARM_EXPORT const Interval second { 2, Interval::Quality::Diminished };
 
 /** A diminished third. */
-LHARM_EXPORT static const Interval third { 3, Interval::Quality::Diminished };
+LHARM_EXPORT const Interval third { 3, Interval::Quality::Diminished };
 
 /** A diminished fourth. */
-LHARM_EXPORT static const Interval fourth { 4, Interval::Quality::Diminished };
+LHARM_EXPORT const Interval fourth { 4, Interval::Quality::Diminished };
 
 /** A diminished fifth. */
-LHARM_EXPORT static const Interval fifth { 5, Interval::Quality::Diminished };
+LHARM_EXPORT const Interval fifth { 5, Interval::Quality::Diminished };
 
 /** A diminished sixth. */
-LHARM_EXPORT static const Interval sixth { 6, Interval::Quality::Diminished };
+LHARM_EXPORT const Interval sixth { 6, Interval::Quality::Diminished };
 
 /** A diminished seventh. */
-LHARM_EXPORT static const Interval seventh { 7, Interval::Quality::Diminished };
+LHARM_EXPORT const Interval seventh { 7, Interval::Quality::Diminished };
 
 /** A diminished octave. */
-LHARM_EXPORT static const Interval octave { 8, Interval::Quality::Diminished };
+LHARM_EXPORT const Interval octave { 8, Interval::Quality::Diminished };
 
 }  // namespace diminished
 
@@ -84,16 +84,16 @@ namespace minor
 {
 
 /** A minor second. */
-LHARM_EXPORT static const Interval second { 2, Interval::Quality::Minor };
+LHARM_EXPORT const Interval second { 2, Interval::Quality::Minor };
 
 /** A minor third. */
-LHARM_EXPORT static const Interval third { 3, Interval::Quality::Minor };
+LHARM_EXPORT const Interval third { 3, Interval::Quality::Minor };
 
 /** A minor sixth. */
-LHARM_EXPORT static const Interval sixth { 6, Interval::Quality::Minor };
+LHARM_EXPORT const Interval sixth { 6, Interval::Quality::Minor };
 
 /** A minor seventh. */
-LHARM_EXPORT static const Interval seventh { 7, Interval::Quality::Minor };
+LHARM_EXPORT const Interval seventh { 7, Interval::Quality::Minor };
 
 }  // namespace minor
 
@@ -102,16 +102,16 @@ namespace major
 {
 
 /** A major second. */
-LHARM_EXPORT static const Interval second { 2, Interval::Quality::Major };
+LHARM_EXPORT const Interval second { 2, Interval::Quality::Major };
 
 /** A major third. */
-LHARM_EXPORT static const Interval third { 3, Interval::Quality::Major };
+LHARM_EXPORT const Interval third { 3, Interval::Quality::Major };
 
 /** A major sixth. */
-LHARM_EXPORT static const Interval sixth { 6, Interval::Quality::Major };
+LHARM_EXPORT const Interval sixth { 6, Interval::Quality::Major };
 
 /** A major seventh. */
-LHARM_EXPORT static const Interval seventh { 7, Interval::Quality::Major };
+LHARM_EXPORT const Interval seventh { 7, Interval::Quality::Major };
 
 }  // namespace major
 
@@ -120,28 +120,28 @@ namespace augmented
 {
 
 /** An augmented unison. */
-LHARM_EXPORT static const Interval unison { 0, Interval::Quality::Augmented };
+LHARM_EXPORT const Interval unison { 0, Interval::Quality::Augmented };
 
 /** An augmented second. */
-LHARM_EXPORT static const Interval second { 2, Interval::Quality::Augmented };
+LHARM_EXPORT const Interval second { 2, Interval::Quality::Augmented };
 
 /** An augmented third. */
-LHARM_EXPORT static const Interval third { 3, Interval::Quality::Augmented };
+LHARM_EXPORT const Interval third { 3, Interval::Quality::Augmented };
 
 /** An augmented fourth. */
-LHARM_EXPORT static const Interval fourth { 4, Interval::Quality::Augmented };
+LHARM_EXPORT const Interval fourth { 4, Interval::Quality::Augmented };
 
 /** An augmented fifth. */
-LHARM_EXPORT static const Interval fifth { 5, Interval::Quality::Augmented };
+LHARM_EXPORT const Interval fifth { 5, Interval::Quality::Augmented };
 
 /** An augmented sixth. */
-LHARM_EXPORT static const Interval sixth { 6, Interval::Quality::Augmented };
+LHARM_EXPORT const Interval sixth { 6, Interval::Quality::Augmented };
 
 /** An augmented seventh. */
-LHARM_EXPORT static const Interval seventh { 7, Interval::Quality::Augmented };
+LHARM_EXPORT const Interval seventh { 7, Interval::Quality::Augmented };
 
 /** An augmented octave. */
-LHARM_EXPORT static const Interval octave { 8, Interval::Quality::Augmented };
+LHARM_EXPORT const Interval octave { 8, Interval::Quality::Augmented };
 
 }  // namespace augmented
 

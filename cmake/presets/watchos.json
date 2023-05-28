@@ -1,0 +1,74 @@
+{
+  "buildPresets": [
+    {
+      "configurePreset": "watchOS",
+      "displayName": "watchOS (debug)",
+      "inherits": "iOS",
+      "name": "watchOS"
+    },
+    {
+      "configuration": "Release",
+      "displayName": "watchOS (release)",
+      "inherits": "watchOS",
+      "name": "watchOS-r"
+    }
+  ],
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 25,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "cacheVariables": {
+        "CMAKE_SYSTEM_NAME": {
+          "type": "STRING",
+          "value": "watchOS"
+        },
+        "CMAKE_XCODE_EFFECTIVE_PLATFORMS": {
+          "type": "STRING",
+          "value": "-watchos"
+        }
+      },
+      "displayName": "watchOS",
+      "inherits": "iOS",
+      "name": "watchOS"
+    }
+  ],
+  "include": [
+    "ios.json"
+  ],
+  "packagePresets": [
+    {
+      "configurePreset": "watchOS",
+      "displayName": "watchOS",
+      "inherits": "iOS",
+      "name": "watchOS"
+    }
+  ],
+  "version": 6,
+  "workflowPresets": [
+    {
+      "displayName": "watchOS",
+      "name": "watchOS",
+      "steps": [
+        {
+          "name": "watchOS",
+          "type": "configure"
+        },
+        {
+          "name": "watchOS",
+          "type": "build"
+        },
+        {
+          "name": "watchOS-r",
+          "type": "build"
+        },
+        {
+          "name": "watchOS",
+          "type": "package"
+        }
+      ]
+    }
+  ]
+}

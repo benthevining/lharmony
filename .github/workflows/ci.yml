@@ -89,7 +89,7 @@ jobs:
 
     - name: Set up Emscripten
       if: ${{ matrix.preset == 'emscripten' }}
-      uses: mymindstorm/setup-emsdk@v11
+      uses: mymindstorm/setup-emsdk@v12
 
     - name: Set Emscripten environment variable
       if: ${{ matrix.preset == 'emscripten' }}

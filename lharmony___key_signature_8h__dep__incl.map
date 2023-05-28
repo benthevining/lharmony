@@ -1,0 +1,11 @@
+<map id="lharmony_KeySignature.h" name="lharmony_KeySignature.h">
+<area shape="rect" id="Node000001" title="This file defines the KeySignature scale class." alt="" coords="52,5,223,31"/>
+<area shape="rect" id="Node000002" href="$lharmony_8h_source.html" title=" " alt="" coords="96,153,179,178"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="68,39,37,56,13,80,8,93,10,104,17,114,29,124,61,140,96,152,95,157,59,145,26,128,13,118,5,106,3,92,9,78,34,52,66,34"/>
+<area shape="rect" id="Node000003" href="$lharmony___key_signature_constants_8h.html" title="This file contains some useful predefined key signatures." alt="" coords="22,79,253,105"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="140,46,140,79,135,79,135,46"/>
+<area shape="rect" id="Node000004" href="$lharmony___mode_8h.html" title="This file defines the Mode scale class." alt="" coords="277,79,401,105"/>
+<area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="186,34,306,76,304,81,184,39"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="140,119,140,152,135,152,135,119"/>
+<area shape="poly" id="edge5_Node000004_Node000002" title=" " alt="" coords="292,112,173,155,171,150,291,107"/>
+</map>

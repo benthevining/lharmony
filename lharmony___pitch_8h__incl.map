@@ -1,0 +1,27 @@
+<map id="lharmony_Pitch.h" name="lharmony_Pitch.h">
+<area shape="rect" id="Node000001" title="This file defines the Pitch class." alt="" coords="145,5,267,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,79,74,105"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="179,34,82,75,80,70,177,29"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="69,226,256,252"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="203,33,185,80,171,151,166,212,160,211,166,150,180,78,198,31"/>
+<area shape="rect" id="Node000004" href="$lharmony___pitch_class_8h.html" title="This file defines the PitchClass class." alt="" coords="194,79,408,105"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="224,29,275,68,272,72,221,34"/>
+<area shape="rect" id="Node000008" href="$lharmony___pitch_utils_8h.html" title="This file contains miscellaneous pitch utilities." alt="" coords="458,153,664,178"/>
+<area shape="poly" id="edge14_Node000001_Node000008" title=" " alt="" coords="267,29,341,48,421,77,482,109,534,142,531,146,480,113,418,81,340,54,265,34"/>
+<area shape="poly" id="edge7_Node000004_Node000003" title=" " alt="" coords="262,108,224,126,205,139,190,154,174,183,167,212,162,211,169,181,185,151,202,135,221,121,260,103"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="396,226,446,252"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="332,103,366,122,398,151,413,181,421,211,415,213,408,183,393,154,363,127,330,108"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="200,153,287,178"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="293,107,264,143,260,139,289,103"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="312,153,383,178"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="311,103,334,138,329,141,306,106"/>
+<area shape="poly" id="edge8_Node000004_Node000008" title=" " alt="" coords="346,103,504,146,502,151,344,108"/>
+<area shape="poly" id="edge13_Node000008_Node000003" title=" " alt="" coords="493,182,245,226,244,221,492,176"/>
+<area shape="poly" id="edge9_Node000008_Node000005" title=" " alt="" coords="538,181,459,221,457,217,536,176"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="658,226,722,252"/>
+<area shape="poly" id="edge10_Node000008_Node000009" title=" " alt="" coords="584,177,657,216,654,221,581,181"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="470,226,553,252"/>
+<area shape="poly" id="edge11_Node000008_Node000010" title=" " alt="" coords="555,180,530,216,526,212,550,177"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="576,226,634,252"/>
+<area shape="poly" id="edge12_Node000008_Node000011" title=" " alt="" coords="570,177,592,212,588,215,566,180"/>
+</map>

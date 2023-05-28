@@ -1,0 +1,5 @@
+<map id="limes::harmony::scales::Chromatic" name="limes::harmony::scales::Chromatic">
+<area shape="rect" id="Node000001" title="A class representing a chromatic scale." alt="" coords="5,94,162,135"/>
+<area shape="rect" id="Node000002" href="$structlimes_1_1harmony_1_1scales_1_1_scale.html" title="A base class for any kind of musical scale." alt="" coords="5,5,162,46"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="86,61,86,94,81,94,81,61"/>
+</map>

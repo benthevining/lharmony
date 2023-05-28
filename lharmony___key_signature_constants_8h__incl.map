@@ -1,0 +1,43 @@
+<map id="lharmony_KeySignatureConstants.h" name="lharmony_KeySignatureConstants.h">
+<area shape="rect" id="Node000001" title="This file contains some useful predefined key signatures." alt="" coords="5,5,236,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="136,462,324,488"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="112,33,93,57,72,91,55,130,48,172,48,329,52,352,61,373,74,391,92,408,133,435,176,454,174,459,131,440,88,412,70,395,56,376,47,354,43,329,43,171,50,128,68,88,89,54,108,30"/>
+<area shape="rect" id="Node000003" href="$lharmony___key_signature_8h.html" title="This file defines the KeySignature scale class." alt="" coords="122,79,349,105"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="141,29,205,68,202,73,139,34"/>
+<area shape="poly" id="edge4_Node000003_Node000002" title=" " alt="" coords="214,107,180,130,142,163,125,183,112,205,102,228,99,253,99,329,102,349,108,368,132,403,163,431,195,452,192,457,160,435,128,406,104,371,96,351,94,329,94,253,97,227,107,202,121,180,138,160,177,126,211,103"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="135,241,192,267"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="219,107,195,127,175,154,165,191,163,227,158,227,159,190,170,151,191,123,215,103"/>
+<area shape="rect" id="Node000005" href="$lharmony___scale_8h.html" title="This file defines the Scale class." alt="" coords="184,160,366,186"/>
+<area shape="poly" id="edge5_Node000003_Node000005" title=" " alt="" coords="244,104,265,146,260,148,239,106"/>
+<area shape="rect" id="Node000008" href="$lharmony___pitch_class_8h.html" title="This file defines the PitchClass class." alt="" coords="485,315,698,341"/>
+<area shape="poly" id="edge24_Node000003_Node000008" title=" " alt="" coords="350,97,416,103,481,114,536,130,557,139,572,151,584,167,593,186,602,227,603,267,599,301,594,300,598,267,597,227,588,188,580,170,568,155,554,144,534,135,480,119,415,109,349,102"/>
+<area shape="rect" id="Node000016" href="$lharmony___key_signature__impl_8h.html" title="This file contains implementation details for the KeySignature class." alt="" coords="390,153,558,193"/>
+<area shape="poly" id="edge25_Node000003_Node000016" title=" " alt="" coords="273,103,402,145,400,150,271,108"/>
+<area shape="poly" id="edge7_Node000005_Node000002" title=" " alt="" coords="276,187,236,448,231,447,271,186"/>
+<area shape="poly" id="edge6_Node000005_Node000004" title=" " alt="" coords="260,188,193,235,190,231,257,184"/>
+<area shape="rect" id="Node000006" href="$lharmony___pitch_8h.html" title="This file defines the Pitch class." alt="" coords="278,241,457,267"/>
+<area shape="poly" id="edge8_Node000005_Node000006" title=" " alt="" coords="291,184,344,230,340,234,287,188"/>
+<area shape="poly" id="edge23_Node000005_Node000008" title=" " alt="" coords="322,184,393,206,470,239,523,271,567,304,564,308,520,276,467,244,391,211,320,189"/>
+<area shape="poly" id="edge10_Node000006_Node000002" title=" " alt="" coords="359,269,323,317,278,389,245,450,240,448,274,386,318,313,355,266"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="333,315,401,341"/>
+<area shape="poly" id="edge9_Node000006_Node000007" title=" " alt="" coords="370,267,370,300,365,300,365,267"/>
+<area shape="poly" id="edge11_Node000006_Node000008" title=" " alt="" coords="406,265,540,307,538,313,404,270"/>
+<area shape="rect" id="Node000012" href="$lharmony___pitch_utils_8h.html" title="This file contains miscellaneous pitch utilities." alt="" coords="368,389,574,414"/>
+<area shape="poly" id="edge22_Node000006_Node000012" title=" " alt="" coords="379,266,416,313,458,375,453,378,412,317,375,269"/>
+<area shape="poly" id="edge15_Node000008_Node000002" title=" " alt="" coords="517,344,439,362,358,391,302,422,257,455,254,451,299,418,355,386,437,357,516,339"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="707,462,758,488"/>
+<area shape="poly" id="edge12_Node000008_Node000009" title=" " alt="" coords="665,339,743,358,775,371,796,387,802,406,796,424,782,441,765,456,762,452,778,437,791,422,797,406,792,390,773,376,742,363,664,344"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="598,389,686,414"/>
+<area shape="poly" id="edge13_Node000008_Node000010" title=" " alt="" coords="602,339,627,375,623,378,597,342"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="710,389,782,414"/>
+<area shape="poly" id="edge14_Node000008_Node000011" title=" " alt="" coords="619,339,707,380,705,384,616,344"/>
+<area shape="poly" id="edge16_Node000008_Node000012" title=" " alt="" coords="572,344,505,383,503,378,569,339"/>
+<area shape="poly" id="edge21_Node000012_Node000002" title=" " alt="" coords="431,417,285,460,284,455,429,412"/>
+<area shape="poly" id="edge17_Node000012_Node000009" title=" " alt="" coords="516,412,694,461,693,466,515,417"/>
+<area shape="rect" id="Node000013" title=" " alt="" coords="347,462,411,488"/>
+<area shape="poly" id="edge18_Node000012_Node000013" title=" " alt="" coords="457,417,408,455,404,451,454,413"/>
+<area shape="rect" id="Node000014" title=" " alt="" coords="435,462,518,488"/>
+<area shape="poly" id="edge19_Node000012_Node000014" title=" " alt="" coords="475,414,477,447,472,447,469,415"/>
+<area shape="rect" id="Node000015" title=" " alt="" coords="541,462,599,488"/>
+<area shape="poly" id="edge20_Node000012_Node000015" title=" " alt="" coords="489,413,543,451,540,456,486,417"/>
+</map>

@@ -1,0 +1,36 @@
+var classlimes_1_1harmony_1_1scales_1_1_key_signature =
+[
+    [ "Type", "classlimes_1_1harmony_1_1scales_1_1_key_signature.html#a6ffad01831fc3f0235d7aed8bdf9c97f", [
+      [ "Major", "classlimes_1_1harmony_1_1scales_1_1_key_signature.html#a6ffad01831fc3f0235d7aed8bdf9c97fa3b329734e45b57e60f3df64c2cf412a9", null ],
+      [ "NaturalMinor", "classlimes_1_1harmony_1_1scales_1_1_key_signature.html#a6ffad01831fc3f0235d7aed8bdf9c97fa39fb9f61a41734dda0898ce1e7d8d54f", null ],
+      [ "HarmonicMinor", "classlimes_1_1harmony_1_1scales_1_1_key_signature.html#a6ffad01831fc3f0235d7aed8bdf9c97fae61508e9a3d1f13ff47ad5b65b34de32", null ]
+    ] ],
+    [ "KeySignature", "classlimes_1_1harmony_1_1scales_1_1_key_signature.html#aa266412752054ebb4fd97024e107b667", null ],
+    [ "KeySignature", "classlimes_1_1harmony_1_1scales_1_1_key_signature.html#ac2d29954750ce7e29b30bb6c37f0bcf3", null ],
+    [ "KeySignature", "classlimes_1_1harmony_1_1scales_1_1_key_signature.html#afbac850d8a1f59fdd5f3c34e75883b42", null ],
+    [ "KeySignature", "classlimes_1_1harmony_1_1scales_1_1_key_signature.html#a6f0f8fecfe625b83a32958dff50b0c77", null ],
+    [ "KeySignature", "classlimes_1_1harmony_1_1scales_1_1_key_signature.html#a3d9fadd754e2b4fa93f3d96f16f5742e", null ],
+    [ "KeySignature", "classlimes_1_1harmony_1_1scales_1_1_key_signature.html#acf488bcf229be56e10676f3a9eddcfec", null ],
+    [ "getDominantKey", "classlimes_1_1harmony_1_1scales_1_1_key_signature.html#a29186152b3df3c9bd8d9bcc19109a71d", null ],
+    [ "getEnharmonicKey", "classlimes_1_1harmony_1_1scales_1_1_key_signature.html#a93dc77dfeff5e7b3e63b79b54bb1c3ce", null ],
+    [ "getIntervalsAsSemitones", "classlimes_1_1harmony_1_1scales_1_1_key_signature.html#a6c1128a33b271b9c3d54af6ea329633e", null ],
+    [ "getKeyType", "classlimes_1_1harmony_1_1scales_1_1_key_signature.html#ad3168ff04d9871da48aab8f1372cd596", null ],
+    [ "getNumFlats", "classlimes_1_1harmony_1_1scales_1_1_key_signature.html#ad5d24213cbeae1fe50d36430d58cd34f", null ],
+    [ "getNumSharps", "classlimes_1_1harmony_1_1scales_1_1_key_signature.html#a2fb05992a36572f952f0e3a668f49abb", null ],
+    [ "getParallelKey", "classlimes_1_1harmony_1_1scales_1_1_key_signature.html#a50b1105e31e9d8deb2c0a0bde60e639d", null ],
+    [ "getPitchClassOfRoot", "classlimes_1_1harmony_1_1scales_1_1_key_signature.html#acbe04c447340f1a78f6a06fb7494c100", null ],
+    [ "getRelativeKey", "classlimes_1_1harmony_1_1scales_1_1_key_signature.html#aebc301062c7b31c9f95935e050e9d13a", null ],
+    [ "hasEnharmonicKey", "classlimes_1_1harmony_1_1scales_1_1_key_signature.html#a94fb138d104f2f2e80f048722db4a080", null ],
+    [ "isDominantKeyOf", "classlimes_1_1harmony_1_1scales_1_1_key_signature.html#a6e737ec4e3e3c79b7430568475dc3529", null ],
+    [ "isEnharmonicKeyOf", "classlimes_1_1harmony_1_1scales_1_1_key_signature.html#a72f95ba368cab1464e96997ddc433edc", null ],
+    [ "isFlatKey", "classlimes_1_1harmony_1_1scales_1_1_key_signature.html#a727fdc67d003a8e9b1f609e1baf2c36f", null ],
+    [ "isMajorKey", "classlimes_1_1harmony_1_1scales_1_1_key_signature.html#a47c173b0ca22f7894a47c1623e5bbc6d", null ],
+    [ "isMinorKey", "classlimes_1_1harmony_1_1scales_1_1_key_signature.html#afce4419542c19cf39094ae9bcde440b5", null ],
+    [ "isParallelKeyOf", "classlimes_1_1harmony_1_1scales_1_1_key_signature.html#a30f9c474b4332015e1ae68665d3e447e", null ],
+    [ "isRelativeKeyOf", "classlimes_1_1harmony_1_1scales_1_1_key_signature.html#a4c8827518583010ac3994c66ef312df1", null ],
+    [ "isSharpKey", "classlimes_1_1harmony_1_1scales_1_1_key_signature.html#a6369d8ba00cb77d7cba387d41a59f14b", null ],
+    [ "notesPerOctave", "classlimes_1_1harmony_1_1scales_1_1_key_signature.html#a2e75423da9d66ec382b4ad62a0af38ec", null ],
+    [ "operator!=", "classlimes_1_1harmony_1_1scales_1_1_key_signature.html#a6502436f2f7c47268fed4c96099db8d8", null ],
+    [ "operator==", "classlimes_1_1harmony_1_1scales_1_1_key_signature.html#a6bdfd1e70f9e708cc48a2b064f9352e2", null ],
+    [ "withType", "classlimes_1_1harmony_1_1scales_1_1_key_signature.html#a1c419aecbef1b711baa8166f1f2674aa", null ]
+];

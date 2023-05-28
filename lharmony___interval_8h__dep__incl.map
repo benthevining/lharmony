@@ -1,0 +1,14 @@
+<map id="lharmony_Interval.h" name="lharmony_Interval.h">
+<area shape="rect" id="Node000001" title="This file defines the Interval class." alt="" coords="169,5,304,31"/>
+<area shape="rect" id="Node000002" href="$lharmony_8h_source.html" title=" " alt="" coords="195,153,278,178"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="155,34,71,53,37,66,17,81,8,101,14,117,32,130,59,140,128,154,195,160,194,165,127,159,57,146,29,134,10,120,3,100,13,77,35,61,69,48,154,28"/>
+<area shape="rect" id="Node000003" href="$lharmony___compound_interval_8h.html" title="This file defines the CompoundInterval class." alt="" coords="27,79,225,105"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="207,41,146,81,143,76,204,37"/>
+<area shape="rect" id="Node000004" href="$lharmony___interval_constants_8h.html" title="This file provides some useful Interval objects as constants." alt="" coords="249,79,445,105"/>
+<area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="269,37,330,76,327,81,266,41"/>
+<area shape="rect" id="Node000005" href="$lharmony___overtone_series_8h.html" title="This file defines the OvertoneSeries class." alt="" coords="469,79,652,105"/>
+<area shape="poly" id="edge6_Node000001_Node000005" title=" " alt="" coords="306,32,506,76,505,81,305,37"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="158,111,219,150,216,154,155,115"/>
+<area shape="poly" id="edge5_Node000004_Node000002" title=" " alt="" coords="318,115,257,154,254,150,315,111"/>
+<area shape="poly" id="edge7_Node000005_Node000002" title=" " alt="" coords="492,111,279,158,278,152,490,106"/>
+</map>

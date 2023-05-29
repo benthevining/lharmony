@@ -7,6 +7,8 @@ project (
 	DESCRIPTION "C++ harmony library"
 	HOMEPAGE_URL "https://github.com/benthevining/lharmony/")
 
+set_property (DIRECTORY APPEND PROPERTY LABELS lharmony)
+
 include (CMakeDependentOption)
 
 cmake_dependent_option (LHARM_TESTS "Build the lharmony tests" "${lharmony_IS_TOP_LEVEL}" "NOT IOS"
@@ -38,7 +40,8 @@ add_library (limes::lharmony ALIAS lharmony)
 
 target_compile_features (lharmony PUBLIC cxx_std_20)
 
-set_target_properties (lharmony PROPERTIES DEBUG_POSTFIX -d)
+set_target_properties (lharmony PROPERTIES DEBUG_POSTFIX -d VERSION "${lharmony_VERSION}"
+										   SOVERSION "${lharmony_VERSION_MAJOR}")
 
 set (public_header include/lharmony/lharmony.h)
 

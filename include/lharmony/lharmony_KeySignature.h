@@ -70,6 +70,8 @@ class Mode;
 
 	@todo melodic minor? This adds complexity because the intervals are different if
 	you're ascending or descending...
+
+	@todo getMediant(), getSubdominant()
  */
 class LHARM_EXPORT KeySignature final : public Scale
 {

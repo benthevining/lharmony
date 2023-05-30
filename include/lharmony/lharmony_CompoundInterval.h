@@ -66,11 +66,11 @@ public:
 	[[nodiscard]] static CompoundInterval fromPitches (const Pitch& pitch1, const Pitch& pitch2) noexcept;
 	///@}
 
-	constexpr CompoundInterval (const CompoundInterval&) = default;
-	CompoundInterval& operator=(const CompoundInterval&) = default;
+	constexpr CompoundInterval (const CompoundInterval&)  = default;
+	CompoundInterval& operator= (const CompoundInterval&) = default;
 
-	constexpr CompoundInterval (CompoundInterval&&) = default;
-	CompoundInterval& operator=(CompoundInterval&&) = default;
+	constexpr CompoundInterval (CompoundInterval&&)	 = default;
+	CompoundInterval& operator= (CompoundInterval&&) = default;
 
 	/** Returns true if the two compound intervals are exactly equal; that is, have the same number of octaves, and their simple %interval components are exactly equal in kind and quality. */
 	[[nodiscard]] constexpr bool operator== (const CompoundInterval& other) const noexcept;

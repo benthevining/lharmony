@@ -60,10 +60,10 @@ public:
 
 	///@}
 
-	Octatonic (const Octatonic&) = default;
+	Octatonic (const Octatonic&)			= default;
 	Octatonic& operator= (const Octatonic&) = default;
 
-	Octatonic (Octatonic&&) = default;
+	Octatonic (Octatonic&&)			   = default;
 	Octatonic& operator= (Octatonic&&) = default;
 
 	/** Returns true if the other %octatonic %scale is equal to this one. */

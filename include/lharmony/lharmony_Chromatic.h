@@ -53,11 +53,11 @@ public:
 
 	///@}
 
-	Chromatic (const Chromatic&) = default;
-	Chromatic& operator=(const Chromatic&) = default;
+	Chromatic (const Chromatic&)			= default;
+	Chromatic& operator= (const Chromatic&) = default;
 
-	Chromatic (Chromatic&&) = default;
-	Chromatic& operator=(Chromatic&&) = default;
+	Chromatic (Chromatic&&)			   = default;
+	Chromatic& operator= (Chromatic&&) = default;
 
 	/** Returns true if the other %chromatic %scale starts on the same %pitch class as this one. */
 	[[nodiscard]] bool operator== (const Chromatic& other) const;

@@ -124,11 +124,11 @@ public:
 
 	~KeySignature() final = default;
 
-	KeySignature (const KeySignature&) = default;
-	KeySignature& operator=(const KeySignature&) = default;
+	KeySignature (const KeySignature&)			  = default;
+	KeySignature& operator= (const KeySignature&) = default;
 
-	KeySignature (KeySignature&&) = default;
-	KeySignature& operator=(KeySignature&&) = default;
+	KeySignature (KeySignature&&)			 = default;
+	KeySignature& operator= (KeySignature&&) = default;
 
 	/** Returns true if the other key signature is semantically equivalent to this one. */
 	[[nodiscard]] constexpr bool operator== (const KeySignature& other) const noexcept;

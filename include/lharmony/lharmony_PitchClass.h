@@ -66,11 +66,11 @@ struct LHARM_EXPORT PitchClass final
 	{
 	}
 
-	constexpr PitchClass (const PitchClass&) = default;
-	constexpr PitchClass& operator=(const PitchClass&) = default;
+	constexpr PitchClass (const PitchClass&)			= default;
+	constexpr PitchClass& operator= (const PitchClass&) = default;
 
-	constexpr PitchClass (PitchClass&&) = default;
-	constexpr PitchClass& operator=(PitchClass&&) = default;
+	constexpr PitchClass (PitchClass&&)			   = default;
+	constexpr PitchClass& operator= (PitchClass&&) = default;
 
 	/** Returns true if the two %pitch classes are equal. */
 	[[nodiscard]] constexpr bool operator== (const PitchClass& other) const noexcept

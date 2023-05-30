@@ -32,7 +32,7 @@ PitchClass KeySignature::getPitchClassOfRoot() const noexcept
 {
 	struct MajorMinorPair final
 	{
-		int majorRoot, minorRoot; // cppcheck-suppress unusedStructMember
+		int majorRoot, minorRoot;  // cppcheck-suppress unusedStructMember
 	};
 
 	const auto pair = [num = numAccidentals, flat = isFlat]() -> MajorMinorPair

@@ -42,7 +42,7 @@ Interval::Interval (int kindToUse, Quality qualityToUse)
 }
 
 Interval::Interval() noexcept
-: Interval (0, Quality::Perfect)
+	: Interval (0, Quality::Perfect)
 {
 }
 
@@ -410,7 +410,7 @@ int Interval::getNumSemitones() const noexcept
 			case (Quality::Minor) : return baseSemitones - 1;
 			case (Quality::Augmented) : return baseSemitones + 1;
 			case (Quality::Diminished) : return baseSemitones - 2;
-			default: return 0; // unreachable
+			default : return 0;	 // unreachable
 		}
 	};
 
@@ -421,7 +421,7 @@ int Interval::getNumSemitones() const noexcept
 			case (Quality::Perfect) : return baseSemitones;
 			case (Quality::Augmented) : return baseSemitones + 1;
 			case (Quality::Diminished) : return baseSemitones - 1;
-			default: return 0; // unreachable
+			default : return 0;	 // unreachable
 		}
 	};
 

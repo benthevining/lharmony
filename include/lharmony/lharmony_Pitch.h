@@ -61,11 +61,11 @@ public:
 	{
 	}
 
-	constexpr Pitch (const Pitch&) = default;
-	constexpr Pitch& operator=(const Pitch&) = default;
+	constexpr Pitch (const Pitch&)			  = default;
+	constexpr Pitch& operator= (const Pitch&) = default;
 
-	constexpr Pitch (Pitch&&) = default;
-	constexpr Pitch& operator=(Pitch&&) = default;
+	constexpr Pitch (Pitch&&)			 = default;
+	constexpr Pitch& operator= (Pitch&&) = default;
 
 	/** Creates a Pitch object from a frequency in Hz.
 

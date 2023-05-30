@@ -113,7 +113,7 @@ LHARM_EXPORT constexpr int highestNoteOfMidiOctave (int octaveNumber) noexcept
 
 /** A utility concept that specifies the type must be an arithmetic type.
  */
-template<typename T>
+template <typename T>
 concept ArithmeticType = std::is_arithmetic_v<T>;
 
 /** Converts a MIDI note to a frequency in Hz.

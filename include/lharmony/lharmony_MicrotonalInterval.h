@@ -41,11 +41,11 @@ public:
 	{
 	}
 
-	constexpr MicrotonalInterval (const MicrotonalInterval&) = default;
-	constexpr MicrotonalInterval& operator=(const MicrotonalInterval&) = default;
+	constexpr MicrotonalInterval (const MicrotonalInterval&)			= default;
+	constexpr MicrotonalInterval& operator= (const MicrotonalInterval&) = default;
 
-	constexpr MicrotonalInterval (MicrotonalInterval&&) = default;
-	constexpr MicrotonalInterval& operator=(MicrotonalInterval&&) = default;
+	constexpr MicrotonalInterval (MicrotonalInterval&&)			   = default;
+	constexpr MicrotonalInterval& operator= (MicrotonalInterval&&) = default;
 
 	~MicrotonalInterval() = default;
 

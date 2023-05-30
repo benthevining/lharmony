@@ -92,11 +92,11 @@ public:
 	/** Destructor. */
 	virtual ~Interval() = default;
 
-	Interval (const Interval&) = default;
-	Interval& operator=(const Interval&) = default;
+	Interval (const Interval&)			  = default;
+	Interval& operator= (const Interval&) = default;
 
-	Interval (Interval&&) = default;
-	Interval& operator=(Interval&&) = default;
+	Interval (Interval&&)			 = default;
+	Interval& operator= (Interval&&) = default;
 
 	/** Describes the quality of the %interval.
 		Note that not all possible quality values are valid for every possible %interval type; a "major fifth" or a "perfect third" do not exist.

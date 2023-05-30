@@ -25,7 +25,8 @@ namespace limes::harmony
 Chord::Chord (const std::initializer_list<int>& midiNotes)
 {
 	std::transform (std::begin (midiNotes), std::end (midiNotes), std::begin (pitches),
-					[] (const auto midiNote) { return Pitch { midiNote }; });
+					[] (const auto midiNote)
+					{ return Pitch { midiNote }; });
 
 	pitches.erase (std::unique (std::begin (pitches), std::end (pitches)), std::end (pitches));
 
@@ -60,7 +61,7 @@ bool Chord::contains (PitchClass pitchClass) const noexcept
 	return std::find_if (std::begin (pitches), std::end (pitches),
 						 [pitchClass] (const Pitch p)
 						 { return p.getPitchClass() == pitchClass; })
-			!= std::end (pitches);
+		!= std::end (pitches);
 }
 
 bool Chord::contains (Pitch pitch) const noexcept
@@ -73,7 +74,7 @@ bool Chord::contains (int midiNote) const noexcept
 	return std::find_if (std::begin (pitches), std::end (pitches),
 						 [midiNote] (const Pitch p)
 						 { return p.getRoundedMidiPitch() == midiNote; })
-			!= std::end (pitches);
+		!= std::end (pitches);
 }
 
 bool Chord::fitsInScale (const scales::Scale& scale) const noexcept
@@ -98,7 +99,8 @@ std::vector<PitchClass> Chord::getPitchClasses() const
 	std::vector<PitchClass> pitchClasses;
 
 	std::transform (std::begin (pitches), std::end (pitches), std::begin (pitchClasses),
-					[] (const Pitch pitch) { return pitch.getPitchClass(); });
+					[] (const Pitch pitch)
+					{ return pitch.getPitchClass(); });
 
 	pitchClasses.erase (std::unique (std::begin (pitchClasses), std::end (pitchClasses)), std::end (pitchClasses));
 

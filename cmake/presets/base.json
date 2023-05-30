@@ -59,7 +59,7 @@
       },
       "filter": {
         "include": {
-          "name": "^Limes.harmony.+"
+          "name": "^limes.harmony.+"
         }
       },
       "hidden": true,

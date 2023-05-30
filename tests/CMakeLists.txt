@@ -50,5 +50,7 @@ catch_discover_tests (
 		--warn NoAssertions
 		--order rand
 		--verbosity high
-	TEST_PREFIX "Limes.harmony.unit.")
+	TEST_PREFIX "limes.harmony.unit.")
 # cmake-format: on
+
+include (FindPackage/CreateTests.cmake)

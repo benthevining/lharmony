@@ -36,6 +36,13 @@ target_sources (lharmony_tests PRIVATE CompoundInterval.cpp Interval.cpp KeySign
 
 target_link_libraries (lharmony_tests PRIVATE Catch2::Catch2WithMain limes::lharmony)
 
+if (WIN32)
+	add_custom_command (
+		TARGET lharmony_tests POST_BUILD
+		COMMAND "${CMAKE_COMMAND}" -E copy -t $<TARGET_FILE_DIR:lharmony_tests>
+				$<TARGET_RUNTIME_DLLS:lharmony_tests> USES_TERMINAL COMMAND_EXPAND_LISTS)
+endif ()
+
 # cmake-format: off
 catch_discover_tests (
 	lharmony_tests
@@ -43,5 +50,5 @@ catch_discover_tests (
 		--warn NoAssertions
 		--order rand
 		--verbosity high
-	TEST_PREFIX "Limes.files.unit.")
+	TEST_PREFIX "Limes.harmony.unit.")
 # cmake-format: on

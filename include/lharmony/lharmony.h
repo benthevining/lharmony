@@ -41,6 +41,7 @@
 
 	@todo circle of fifths class. Stateful - next(), prev(), +=, -=, etc
 	@todo tone row class
+	@todo note class that includes pitch & spelling (accidentals)
  */
 
 /** @file
@@ -60,24 +61,26 @@
 #pragma once
 
 // IWYU pragma: begin_exports
-#include "./lharmony_Pitch.h"
-#include "./lharmony_PitchClass.h"
-#include "./lharmony_PitchUtils.h"
+#include "lharmony/lharmony_Version.h"
 
-#include "./lharmony_Interval.h"
-#include "./lharmony_IntervalConstants.h"
-#include "./lharmony_CompoundInterval.h"
-#include "./lharmony_MicrotonalInterval.h"
+#include "lharmony/lharmony_Pitch.h"
+#include "lharmony/lharmony_PitchClass.h"
+#include "lharmony/lharmony_PitchUtils.h"
 
-#include "./lharmony_Chord.h"
+#include "lharmony/lharmony_Interval.h"
+#include "lharmony/lharmony_IntervalConstants.h"
+#include "lharmony/lharmony_CompoundInterval.h"
+#include "lharmony/lharmony_MicrotonalInterval.h"
 
-#include "./lharmony_Scale.h"
-#include "./lharmony_Chromatic.h"
-#include "./lharmony_KeySignature.h"
-#include "./lharmony_KeySignatureConstants.h"
-#include "./lharmony_Mode.h"
-#include "./lharmony_Octatonic.h"
-#include "./lharmony_WholeTone.h"
+#include "lharmony/lharmony_Chord.h"
 
-#include "./lharmony_OvertoneSeries.h"
+#include "lharmony/lharmony_Scale.h"
+#include "lharmony/lharmony_Chromatic.h"
+#include "lharmony/lharmony_KeySignature.h"
+#include "lharmony/lharmony_KeySignatureConstants.h"
+#include "lharmony/lharmony_Mode.h"
+#include "lharmony/lharmony_Octatonic.h"
+#include "lharmony/lharmony_WholeTone.h"
+
+#include "lharmony/lharmony_OvertoneSeries.h"
 // IWYU pragma: end_exports

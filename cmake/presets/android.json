@@ -30,6 +30,7 @@
           "value": "Android"
         }
       },
+      "description": "Note that you should set the environment variable ANDROID_NDK_ROOT when using this preset. This is usually of the form $HOME/Library/Android/sdk/ndk/<ndkVersion>",
       "displayName": "Android",
       "inherits": "base",
       "name": "android"

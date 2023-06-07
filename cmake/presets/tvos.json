@@ -2,15 +2,34 @@
   "buildPresets": [
     {
       "configurePreset": "tvOS",
-      "displayName": "tvOS (debug)",
+      "displayName": "tvOS (simulator - debug)",
       "inherits": "iOS",
-      "name": "tvOS"
+      "name": "tvOS",
+      "nativeToolOptions": [
+        "-sdk",
+        "appletvsimulator"
+      ]
     },
     {
       "configuration": "Release",
-      "displayName": "tvOS (release)",
+      "displayName": "tvOS (simulator - release)",
       "inherits": "tvOS",
       "name": "tvOS-r"
+    },
+    {
+      "displayName": "tvOS (device - debug)",
+      "inherits": "tvOS",
+      "name": "tvOS-dev",
+      "nativeToolOptions": [
+        "-sdk",
+        "appletvos"
+      ]
+    },
+    {
+      "configuration": "Release",
+      "displayName": "tvOS (device - release)",
+      "inherits": "tvOS-dev",
+      "name": "tvOS-dev-r"
     }
   ],
   "cmakeMinimumRequired": {
@@ -27,7 +46,7 @@
         },
         "CMAKE_XCODE_EFFECTIVE_PLATFORMS": {
           "type": "STRING",
-          "value": "-appletvos"
+          "value": "-appletvsimulator"
         }
       },
       "displayName": "tvOS",
@@ -62,6 +81,14 @@
         },
         {
           "name": "tvOS-r",
+          "type": "build"
+        },
+        {
+          "name": "tvOS-dev",
+          "type": "build"
+        },
+        {
+          "name": "tvOS-dev-r",
           "type": "build"
         },
         {

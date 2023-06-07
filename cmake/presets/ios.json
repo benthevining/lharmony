@@ -7,15 +7,34 @@
         "type": "equals"
       },
       "configurePreset": "iOS",
-      "displayName": "iOS (debug)",
+      "displayName": "iOS (simulator - debug)",
       "inherits": "base",
-      "name": "iOS"
+      "name": "iOS",
+      "nativeToolOptions": [
+        "-sdk",
+        "iphonesimulator"
+      ]
     },
     {
       "configuration": "Release",
-      "displayName": "iOS (release)",
+      "displayName": "iOS (simulator - release)",
       "inherits": "iOS",
       "name": "iOS-r"
+    },
+    {
+      "displayName": "iOS (device - debug)",
+      "inherits": "iOS",
+      "name": "iOS-dev",
+      "nativeToolOptions": [
+        "-sdk",
+        "iphoneos"
+      ]
+    },
+    {
+      "configuration": "Release",
+      "displayName": "iOS (device - release)",
+      "inherits": "iOS-dev",
+      "name": "iOS-dev-r"
     }
   ],
   "cmakeMinimumRequired": {
@@ -32,7 +51,7 @@
         },
         "CMAKE_XCODE_EFFECTIVE_PLATFORMS": {
           "type": "STRING",
-          "value": "-iphoneos"
+          "value": "-iphonesimulator"
         },
         "IOS": {
           "type": "BOOL",
@@ -82,6 +101,14 @@
         },
         {
           "name": "iOS-r",
+          "type": "build"
+        },
+        {
+          "name": "iOS-dev",
+          "type": "build"
+        },
+        {
+          "name": "iOS-dev-r",
           "type": "build"
         },
         {

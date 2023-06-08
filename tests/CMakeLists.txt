@@ -10,47 +10,20 @@
 #
 # ======================================================================================
 
-include (FetchContent)
-
-FetchContent_Declare (
-	Catch2
-	GIT_REPOSITORY https://github.com/catchorg/Catch2.git
-	GIT_TAG origin/devel
-	GIT_SHALLOW ON
-	FIND_PACKAGE_ARGS 3 GLOBAL)
-
-FetchContent_MakeAvailable (Catch2)
-
-if (catch2_SOURCE_DIR)
-	list (APPEND CMAKE_MODULE_PATH "${catch2_SOURCE_DIR}/extras")
-endif ()
-
-include (Catch)
+limes_get_catch2 ()
 
 add_executable (lharmony_tests)
-
-set_target_properties (lharmony_tests PROPERTIES MACOSX_BUNDLE OFF)
 
 target_sources (lharmony_tests PRIVATE CompoundInterval.cpp Interval.cpp KeySignature.cpp Mode.cpp
 									   Pitch.cpp PitchUtils.cpp)
 
-target_link_libraries (lharmony_tests PRIVATE Catch2::Catch2WithMain limes::lharmony)
-
-if (WIN32)
-	add_custom_command (
-		TARGET lharmony_tests POST_BUILD
-		COMMAND "${CMAKE_COMMAND}" -E copy -t $<TARGET_FILE_DIR:lharmony_tests>
-				$<TARGET_RUNTIME_DLLS:lharmony_tests> USES_TERMINAL COMMAND_EXPAND_LISTS)
-endif ()
-
-# cmake-format: off
-catch_discover_tests (
+limes_configure_test_target (
 	lharmony_tests
-	EXTRA_ARGS
-		--warn NoAssertions
-		--order rand
-		--verbosity high
-	TEST_PREFIX "limes.harmony.unit.")
-# cmake-format: on
+	BUNDLE_ID Limes.lharmony.tests
+	VERSION_MAJOR "${lharmony_VERSION_MAJOR}"
+	FULL_VERSION "${lharmony_VERSION}"
+	TEST_CATEGORY harmony)
+
+target_link_libraries (lharmony_tests PRIVATE limes::lharmony)
 
 include (FindPackage/CreateTests.cmake)

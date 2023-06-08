@@ -7,12 +7,11 @@ project (
 	DESCRIPTION "C++ harmony library"
 	HOMEPAGE_URL "https://github.com/benthevining/lharmony/")
 
-set_property (DIRECTORY APPEND PROPERTY LABELS lharmony)
+add_subdirectory (linfra)
 
-include (CMakeDependentOption)
+limes_default_project_options ()
 
-cmake_dependent_option (LHARM_TESTS "Build the lharmony tests" "${lharmony_IS_TOP_LEVEL}" "NOT IOS"
-						OFF)
+option (LHARM_TESTS "Build the lharmony tests" "${lharmony_IS_TOP_LEVEL}")
 
 option (LHARM_DOCS "Build the lharmony docs" "${lharmony_IS_TOP_LEVEL}")
 
@@ -22,22 +21,6 @@ set (LHARM_INSTALL_DEST "${CMAKE_INSTALL_LIBDIR}/cmake/lharmony"
 	 CACHE STRING "Path where package files will be installed, relative to the install prefix")
 
 mark_as_advanced (LHARM_INSTALL_DEST LHARM_TESTS LHARM_DOCS)
-
-set_property (DIRECTORY APPEND PROPERTY ADDITIONAL_CLEAN_FILES "${CMAKE_CURRENT_LIST_DIR}/logs"
-										"${CMAKE_CURRENT_LIST_DIR}/deploy")
-
-# use the directory-scoped commands so that Catch2 gets these flags too
-if (EMSCRIPTEN)
-	add_compile_options (-sNO_DISABLE_EXCEPTION_CATCHING -fexceptions)
-	add_link_options (-fexceptions)
-endif ()
-
-set (CMAKE_CXX_VISIBILITY_PRESET hidden)
-set (CMAKE_VISIBILITY_INLINES_HIDDEN ON)
-
-set (CMAKE_XCODE_ATTRIBUTE_CODE_SIGNING_ALLOWED "NO")
-set (CMAKE_XCODE_ATTRIBUTE_CODE_SIGNING_REQUIRED "NO")
-set (CMAKE_XCODE_ATTRIBUTE_CODE_SIGN_IDENTITY "")
 
 add_library (lharmony)
 add_library (limes::lharmony ALIAS lharmony)

@@ -87,13 +87,6 @@ repos:
     always_run: true
     pass_filenames: false
 
-    # only .json files allowed in cmake/presets/
-  - id: json-xtn-in-toolchain-dir
-    name: Ensure only .json files in cmake/presets/
-    entry: Files in the cmake/presets/ directory must have the .json extension
-    language: fail
-    files: cmake/presets/.*(?<!\.json)$
-
     # only .yml files allowed in .github/workflows/
   - id: yml-xtn-in-workflow-dir
     name: Ensure only .yml files in .github/workflows/

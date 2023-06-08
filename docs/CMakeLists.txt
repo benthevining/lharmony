@@ -23,9 +23,11 @@ file (GLOB headers LIST_DIRECTORIES false CONFIGURE_DEPENDS
 										  "${CMAKE_CURRENT_LIST_DIR}/../include/lharmony/*.h")
 
 doxygen_add_docs (
-	lharmony_docs ${headers} ${examples} "${DOXYGEN_USE_MDFILE_AS_MAINPAGE}" USE_STAMP_FILE
+	lharmony_docs ${headers} "${DOXYGEN_USE_MDFILE_AS_MAINPAGE}" USE_STAMP_FILE
 	WORKING_DIRECTORY "${CMAKE_CURRENT_LIST_DIR}/.." COMMENT "Building lharmony documentation...")
 
 set_property (
 	TARGET lharmony_docs APPEND PROPERTY ADDITIONAL_CLEAN_FILES "${DOXYGEN_OUTPUT_DIRECTORY}"
 										 "${DOXYGEN_WARN_LOGFILE}" "${DOXYGEN_GENERATE_TAGFILE}")
+
+limes_add_docs_coverage (lharmony_docs)

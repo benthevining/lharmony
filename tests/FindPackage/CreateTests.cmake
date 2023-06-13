@@ -18,11 +18,11 @@ set (install_dir "${CMAKE_CURRENT_BINARY_DIR}/install_tree")
 set (build_dir "${CMAKE_CURRENT_BINARY_DIR}/FindPackage")
 
 add_test (NAME "${base_name}.install"
-		  COMMAND "${CMAKE_COMMAND}" --install "${lharmony_BINARY_DIR}" --config $<CONFIG> --prefix
-				  "${install_dir}" --component lharmony_dev)
+          COMMAND "${CMAKE_COMMAND}" --install "${lharmony_BINARY_DIR}" --config $<CONFIG> --prefix
+                  "${install_dir}" --component lharmony_dev)
 
 set_tests_properties ("${base_name}.install" PROPERTIES FIXTURES_SETUP
-														LimesHarmonyFindPackageInstall)
+                                                        LimesHarmonyFindPackageInstall)
 
 # cmake-format: off
 add_test (
@@ -40,18 +40,18 @@ add_test (
 # cmake-format: on
 
 set_tests_properties (
-	"${base_name}.configure" PROPERTIES FIXTURES_SETUP LimesHarmonyFindPackageConfigure
-										FIXTURES_REQUIRED LimesHarmonyFindPackageInstall)
+    "${base_name}.configure" PROPERTIES FIXTURES_SETUP LimesHarmonyFindPackageConfigure
+                                        FIXTURES_REQUIRED LimesHarmonyFindPackageInstall)
 
 add_test (NAME "${base_name}.build" COMMAND "${CMAKE_COMMAND}" --build "${build_dir}" --config
-											$<CONFIG>)
+                                            $<CONFIG>)
 
 set_tests_properties ("${base_name}.build" PROPERTIES FIXTURES_REQUIRED
-													  LimesHarmonyFindPackageConfigure)
+                                                      LimesHarmonyFindPackageConfigure)
 
 add_test (NAME "${base_name}.clean" COMMAND "${CMAKE_COMMAND}" -E rm -rf "${build_dir}"
-											"${install_dir}")
+                                            "${install_dir}")
 
 set_tests_properties (
-	"${base_name}.clean"
-	PROPERTIES FIXTURES_CLEANUP "LimesHarmonyFindPackageConfigure;LimesHarmonyFindPackageInstall")
+    "${base_name}.clean"
+    PROPERTIES FIXTURES_CLEANUP "LimesHarmonyFindPackageConfigure;LimesHarmonyFindPackageInstall")

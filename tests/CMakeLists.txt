@@ -15,14 +15,14 @@ limes_get_catch2 ()
 add_executable (lharmony_tests)
 
 target_sources (lharmony_tests PRIVATE CompoundInterval.cpp Interval.cpp KeySignature.cpp Mode.cpp
-									   Pitch.cpp PitchUtils.cpp)
+                                       Pitch.cpp PitchUtils.cpp)
 
 limes_configure_test_target (
-	lharmony_tests
-	BUNDLE_ID Limes.lharmony.tests
-	VERSION_MAJOR "${lharmony_VERSION_MAJOR}"
-	FULL_VERSION "${lharmony_VERSION}"
-	TEST_CATEGORY harmony)
+    lharmony_tests
+    BUNDLE_ID Limes.lharmony.tests
+    VERSION_MAJOR "${lharmony_VERSION_MAJOR}"
+    FULL_VERSION "${lharmony_VERSION}"
+    TEST_PREFIX limes.harmony.unit.)
 
 target_link_libraries (lharmony_tests PRIVATE limes::lharmony)
 

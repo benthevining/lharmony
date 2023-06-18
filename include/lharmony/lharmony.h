@@ -40,7 +40,7 @@
 	// TODO
 
 	@todo circle of fifths class. Stateful - next(), prev(), +=, -=, etc
-	@todo tone row class
+	@todo tone matrix / row class
 	@todo note class that includes pitch & spelling (accidentals)
  */
 
@@ -83,4 +83,6 @@
 #include "lharmony/lharmony_WholeTone.h"
 
 #include "lharmony/lharmony_OvertoneSeries.h"
+
+#include "lharmony/lharmony_ToneRow.h"
 // IWYU pragma: end_exports

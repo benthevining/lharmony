@@ -64,6 +64,7 @@ std::string_view PitchClass::getString (bool useSharps) const noexcept
 			return "Bb";
 		}
 		case (11) : return "B";
+		default: return "";
 	}
 }
 

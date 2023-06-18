@@ -51,7 +51,8 @@ set (
     include/lharmony/lharmony_PitchClass.h
     include/lharmony/lharmony_PitchUtils.h
     include/lharmony/lharmony_Scale.h
-    include/lharmony/lharmony_WholeTone.h)
+    include/lharmony/lharmony_WholeTone.h
+    include/lharmony/lharmony_ToneRow.h)
 
 set (generated_headers_dir "${CMAKE_CURRENT_BINARY_DIR}/generated/lharmony")
 

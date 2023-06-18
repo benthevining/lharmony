@@ -14,8 +14,15 @@ limes_get_catch2 ()
 
 add_executable (lharmony_tests)
 
-target_sources (lharmony_tests PRIVATE CompoundInterval.cpp Interval.cpp KeySignature.cpp Mode.cpp
-                                       Pitch.cpp PitchUtils.cpp)
+target_sources (
+    lharmony_tests
+    PRIVATE CompoundInterval.cpp
+            Interval.cpp
+            KeySignature.cpp
+            Mode.cpp
+            Pitch.cpp
+            PitchUtils.cpp
+            ToneRow.cpp)
 
 limes_configure_test_target (
     lharmony_tests

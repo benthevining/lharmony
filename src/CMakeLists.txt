@@ -22,4 +22,5 @@ target_sources (
             lharmony_Pitch.cpp
             lharmony_PitchClass.cpp
             lharmony_Scale.cpp
-            lharmony_WholeTone.cpp)
+            lharmony_WholeTone.cpp
+            lharmony_ToneRow.cpp)

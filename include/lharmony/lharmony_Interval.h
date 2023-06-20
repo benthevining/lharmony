@@ -34,6 +34,8 @@
 namespace limes::harmony
 {
 
+class CompoundInterval;
+
 /** A class that represents a musical interval between two pitches.
 
 	This class is meant for intervals that are an octave or smaller, and that can be expressed as a whole number of semitones.
@@ -161,12 +163,14 @@ public:
 		@see isEnharmonicTo()
 	 */
 	[[nodiscard]] bool operator== (const Interval& other) const noexcept;
+	[[nodiscard]] bool operator== (const CompoundInterval& other) const noexcept;
 
 	/** Returns true if the two intervals are not exactly equal.
 		Note that this will return true for intervals that represent the same number of semitones but are spelled differently.
 		@see isEnharmonicTo()
 	 */
 	[[nodiscard]] bool operator!= (const Interval& other) const noexcept;
+	[[nodiscard]] bool operator!= (const CompoundInterval& other) const noexcept;
 
 	/** Returns true if the two intervals represent the same number of semitones, regardless of their enharmonic spelling.
 		For example, a diminished fifth is enharmonic to an augmented fourth.
@@ -179,11 +183,13 @@ public:
 		For example, this will tell you that a diminished fifth is "larger" than an augmented fourth.
 	 */
 	[[nodiscard]] bool operator> (const Interval& other) const noexcept;
+	[[nodiscard]] bool operator> (const CompoundInterval& other) const noexcept;
 
 	/** Returns true if this %interval is semantically smaller than the other one, taking enharmonic spellings into account.
 		For example, this will tell you that an augmented fourth is "smaller" than a diminished fifth.
 	 */
 	[[nodiscard]] bool operator<(const Interval& other) const noexcept;
+	[[nodiscard]] bool operator< (const CompoundInterval& other) const noexcept;
 
 	/** @name Addition */
 	///@{

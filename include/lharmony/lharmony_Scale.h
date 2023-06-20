@@ -26,6 +26,9 @@
 
 	@todo blues scale(s)
 	@todo pentatonic scale(s)
+	@todo Jewish modes
+
+	@todo KnownScales class
  */
 
 /** @file

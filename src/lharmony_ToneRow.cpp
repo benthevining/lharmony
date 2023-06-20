@@ -14,6 +14,7 @@
 
 #include "lharmony/lharmony_ToneRow.h"
 #include "lharmony/lharmony_PitchUtils.h"
+#include "lharmony/lharmony_IntervalConstants.h"
 #include <stdexcept>
 #include <sstream>
 #include <iterator>
@@ -92,8 +93,6 @@ ToneRow ToneRow::inversion() const
 
 		const auto dist = orig.getAsInt() - last.getAsInt();
 
-//		const auto newAsInt = newPitches[idx - 1UL].getAsInt() - dist;
-
 		newPitches[idx] = newPitches[idx - 1UL] - dist;
 	}
 
@@ -137,6 +136,41 @@ ToneRow ToneRow::transposition (int numSemitones) const
 const ToneRow::Pitches& ToneRow::getPitchClasses() const noexcept
 {
 	return pitches;
+}
+
+static inline ToneRow::Intervals createIntervals (Interval one,  Interval two, Interval three, Interval four,
+												  Interval five, Interval six, Interval seven, Interval eight,
+												  Interval nine, Interval ten, Interval eleven)
+{
+	return ToneRow::Intervals { one, two, three, four, five, six, seven, eight, nine, ten, eleven };
+}
+
+ToneRow::Intervals ToneRow::getIntervals() const
+{
+	auto getInterval = [lowest = pitches[0UL].getAsInt()](PitchClass below, PitchClass above) -> Interval
+	{
+		const auto low = below.getAsInt() - lowest;
+		const auto hi  = above.getAsInt() - lowest;
+
+		const auto i = Interval::fromPitches (low, hi);
+
+		if (i > intervals::perfect::fifth)
+			return Interval::fromPitches (hi, low + 12);
+
+		return i;
+	};
+
+	return createIntervals (getInterval (pitches[0UL],  pitches[1UL]),
+							getInterval (pitches[1UL],  pitches[2UL]),
+							getInterval (pitches[2UL],  pitches[3UL]),
+							getInterval (pitches[3UL],  pitches[4UL]),
+							getInterval (pitches[4UL],  pitches[5UL]),
+							getInterval (pitches[5UL],  pitches[6UL]),
+							getInterval (pitches[6UL],  pitches[7UL]),
+							getInterval (pitches[7UL],  pitches[8UL]),
+							getInterval (pitches[8UL],  pitches[9UL]),
+							getInterval (pitches[9UL],  pitches[10UL]),
+							getInterval (pitches[10UL], pitches[11UL]));
 }
 
 bool ToneRow::operator== (const ToneRow& other) const noexcept

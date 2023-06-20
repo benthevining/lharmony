@@ -22,7 +22,8 @@ target_sources (
             Mode.cpp
             Pitch.cpp
             PitchUtils.cpp
-            ToneRow.cpp)
+            ToneRow.cpp
+            OvertoneSeries.cpp)
 
 limes_configure_test_target (
     lharmony_tests

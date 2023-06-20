@@ -30,6 +30,11 @@ using PC = limes::harmony::PitchClass;
 	return ToneRow { PC(11), PC(10), PC(9), PC(8), PC(7), PC(6), PC(5), PC(4), PC(3), PC(2), PC(1), PC(0) };
 }
 
+[[nodiscard]] static inline ToneRow getInterestingToneRow()
+{
+	return ToneRow { PC(0), PC(5), PC(6), PC(7), PC(4), PC(3), PC(10), PC(8), PC(11), PC(2), PC(9), PC(1) };
+}
+
 TEST_CASE ("ToneRow - inversion", TAGS)
 {
 	SECTION ("Ascending")
@@ -55,28 +60,51 @@ TEST_CASE ("ToneRow - inversion", TAGS)
 		REQUIRE (inv[11UL] == PC(1));
 	}
 
-	 SECTION ("Descending")
-	 {
-		 const auto orig = getDescendingChromaticToneRow();
+	SECTION ("Descending")
+	{
+		const auto orig = getDescendingChromaticToneRow();
 
-		 const auto inv = orig.inversion();
+		const auto inv = orig.inversion();
 
-		 REQUIRE (inv[0UL] == orig[0UL]);
+		REQUIRE (inv[0UL] == orig[0UL]);
 
-		 REQUIRE (inv.inversion() == orig);
+		REQUIRE (inv.inversion() == orig);
 
-		 REQUIRE (inv[1UL] == PC(0));
-		 REQUIRE (inv[2UL] == PC(1));
-		 REQUIRE (inv[3UL] == PC(2));
-		 REQUIRE (inv[4UL] == PC(3));
-		 REQUIRE (inv[5UL] == PC(4));
-		 REQUIRE (inv[6UL] == PC(5));
-		 REQUIRE (inv[7UL] == PC(6));
-		 REQUIRE (inv[8UL] == PC(7));
-		 REQUIRE (inv[9UL] == PC(8));
-		 REQUIRE (inv[10UL] == PC(9));
-		 REQUIRE (inv[11UL] == PC(10));
-	 }
+		REQUIRE (inv[1UL] == PC(0));
+		REQUIRE (inv[2UL] == PC(1));
+		REQUIRE (inv[3UL] == PC(2));
+		REQUIRE (inv[4UL] == PC(3));
+		REQUIRE (inv[5UL] == PC(4));
+		REQUIRE (inv[6UL] == PC(5));
+		REQUIRE (inv[7UL] == PC(6));
+		REQUIRE (inv[8UL] == PC(7));
+		REQUIRE (inv[9UL] == PC(8));
+		REQUIRE (inv[10UL] == PC(9));
+		REQUIRE (inv[11UL] == PC(10));
+	}
+
+	SECTION ("Interesting")
+	{
+		const auto orig = getInterestingToneRow();
+
+		const auto inv = orig.inversion();
+
+		REQUIRE (inv[0UL] == orig[0UL]);
+
+		REQUIRE (inv.inversion() == orig);
+
+		REQUIRE (inv[1UL] == PC(7));
+		REQUIRE (inv[2UL] == PC(6));
+		REQUIRE (inv[3UL] == PC(5));
+		REQUIRE (inv[4UL] == PC(8));
+		REQUIRE (inv[5UL] == PC(9));
+		REQUIRE (inv[6UL] == PC(2));
+		REQUIRE (inv[7UL] == PC(4));
+		REQUIRE (inv[8UL] == PC(1));
+		REQUIRE (inv[9UL] == PC(10));
+		REQUIRE (inv[10UL] == PC(3));
+		REQUIRE (inv[11UL] == PC(11));
+	}
 }
 
 TEST_CASE ("ToneRow - retrograde", TAGS)
@@ -124,6 +152,28 @@ TEST_CASE ("ToneRow - retrograde", TAGS)
 		REQUIRE (ret[10UL] == PC(10));
 		REQUIRE (ret[11UL] == PC(11));
 	}
+
+	SECTION ("Interesting")
+	{
+		const auto orig = getInterestingToneRow();
+
+		const auto ret = orig.retrograde();
+
+		REQUIRE (ret.retrograde() == orig);
+
+		REQUIRE (ret[0UL] == PC(1));
+		REQUIRE (ret[1UL] == PC(9));
+		REQUIRE (ret[2UL] == PC(2));
+		REQUIRE (ret[3UL] == PC(11));
+		REQUIRE (ret[4UL] == PC(8));
+		REQUIRE (ret[5UL] == PC(10));
+		REQUIRE (ret[6UL] == PC(3));
+		REQUIRE (ret[7UL] == PC(4));
+		REQUIRE (ret[8UL] == PC(7));
+		REQUIRE (ret[9UL] == PC(6));
+		REQUIRE (ret[10UL] == PC(5));
+		REQUIRE (ret[11UL] == PC(0));
+	}
 }
 
 TEST_CASE ("ToneRow - transposition", TAGS)
@@ -133,6 +183,11 @@ TEST_CASE ("ToneRow - transposition", TAGS)
 	const auto up = orig.transposition (1);
 
 	REQUIRE (up.transposition (-1) == orig);
+
+	for (auto idx = 0UL; idx < 12UL; ++idx)
+		REQUIRE (up[idx] == orig[idx] + 1);
+
+	// REQUIRE (up.getIntervals() == orig.getIntervals());
 }
 
 TEST_CASE ("ToneRow - retrograde inversion", TAGS)

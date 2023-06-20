@@ -18,7 +18,7 @@
 #include "lharmony/lharmony_Interval.h"
 #include "lharmony/lharmony_Pitch.h"
 #include "lharmony/lharmony_PitchUtils.h"
-#include "lharmony/lharmony_Interval_impl.h"
+#include "lharmony/lharmony_CompoundInterval.h"
 
 namespace limes::harmony
 {
@@ -56,9 +56,19 @@ bool Interval::operator== (const Interval& other) const noexcept
 	return kind == other.kind && quality == other.quality;
 }
 
+bool Interval::operator== (const CompoundInterval& other) const noexcept
+{
+	return other == *this;
+}
+
 bool Interval::operator!= (const Interval& other) const noexcept
 {
 	return ! (*this == other);
+}
+
+bool Interval::operator!= (const CompoundInterval& other) const noexcept
+{
+	return other != *this;
 }
 
 Interval& Interval::operator++() noexcept
@@ -301,12 +311,22 @@ bool Interval::operator> (const Interval& other) const noexcept
 	return kind > other.kind;
 }
 
+bool Interval::operator> (const CompoundInterval& other) const noexcept
+{
+	return *this > other.getSimpleInterval() || getNumSemitones() > other.getNumSemitones();
+}
+
 bool Interval::operator<(const Interval& other) const noexcept
 {
 	if (getNumSemitones() < other.getNumSemitones())
 		return true;
 
 	return kind < other.kind;
+}
+
+bool Interval::operator< (const CompoundInterval& other) const noexcept
+{
+	return *this < other.getSimpleInterval() || getNumSemitones() < other.getNumSemitones();
 }
 
 Interval::Quality Interval::getQuality() const noexcept
@@ -370,7 +390,7 @@ std::string Interval::getStringDescription (bool useShort) const
 {
 	std::stringstream stream;
 
-	stream << qualityToString (quality, useShort);
+	stream << qualityToString (quality, useShort) << ' ';
 
 	if (useShort)
 	{

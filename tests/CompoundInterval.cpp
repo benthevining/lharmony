@@ -15,16 +15,17 @@
 #include "lharmony/lharmony.h"
 #include <catch2/catch_test_macros.hpp>
 
-TEST_CASE ("CompoundInterval", "[audio][harmony][compound_interval]")
+#define TAGS "[audio][harmony][compound_interval]"
+
+/*
+ - isEnharmonicTo
+ - >, <
+ - get num semitones
+ - hasSameSimpleInterval
+*/
+
+TEST_CASE ("CompoundInterval - constructors", TAGS)
 {
-	/*
-	 - create from num semitones
-	 - create from pitches
-	 - ==, isEnharmonicTo
-	 - >, <
-	 - get num semitones
-	 - hasSameSimpleInterval
-	 */
 	using namespace limes::harmony;	 // NOLINT
 
 	using Q = Interval::Quality;
@@ -102,5 +103,88 @@ TEST_CASE ("CompoundInterval", "[audio][harmony][compound_interval]")
 		REQUIRE (interval3.getNumOctaves() == 1);
 
 		REQUIRE (interval3.getSimpleInterval() == Interval { 8, Q::Diminished });
+	}
+}
+
+TEST_CASE ("CompoundInterval - fromPitches()", TAGS)
+{
+	using namespace limes::harmony;
+	namespace i = intervals;
+
+	// perfect fifth
+	{
+		const auto interval = CompoundInterval::fromPitches (88, 95);
+
+		REQUIRE (interval.getNumOctaves() == 0);
+		REQUIRE (interval.getSimpleInterval() == i::perfect::fifth);
+		REQUIRE (interval == i::perfect::fifth);
+		REQUIRE (interval.getNumSemitones() == 7);
+	}
+
+	// perfect octave
+	{
+		const auto interval = CompoundInterval::fromPitches (57, 69);
+
+		REQUIRE (interval.getNumOctaves() == 1);
+		REQUIRE (interval.getSimpleInterval() == i::perfect::unison);
+		REQUIRE (interval == i::perfect::octave);
+		REQUIRE (interval.getNumSemitones() == 12);
+	}
+
+	// major ninth
+	{
+		const auto interval = CompoundInterval::fromPitches (40, 54);
+
+		REQUIRE (interval.getNumOctaves() == 1);
+		REQUIRE (interval.getSimpleInterval() == i::major::second);
+		REQUIRE (interval.getNumSemitones() == 14);
+	}
+
+	// oct + maj 7th
+	{
+		const auto interval = CompoundInterval::fromPitches (52, 75);
+
+		REQUIRE (interval.getNumOctaves() == 1);
+		REQUIRE (interval.getSimpleInterval() == i::major::seventh);
+		REQUIRE (interval.getNumSemitones() == 23);
+	}
+
+	// 2 octaves
+	{
+		const auto interval = CompoundInterval::fromPitches (32, 56);
+
+		REQUIRE (interval.getNumOctaves() == 2);
+		REQUIRE (interval.getSimpleInterval() == i::perfect::unison);
+		REQUIRE (interval.getNumSemitones() == 24);
+	}
+}
+
+TEST_CASE ("Comparing CompoundInterval and Interval", TAGS)
+{
+	using namespace limes::harmony;
+	namespace i = intervals;
+
+	// major seventh
+	{
+		const CompoundInterval compound { 0, i::major::seventh };
+
+		REQUIRE (compound == i::major::seventh);
+		REQUIRE (compound < i::perfect::octave);
+		REQUIRE (compound > i::major::third);
+		REQUIRE (i::major::seventh == compound);
+		REQUIRE (i::perfect::octave > compound);
+		REQUIRE (i::major::third < compound);
+	}
+
+	// octave
+	{
+		const CompoundInterval compound { 1, i::perfect::unison };
+
+		REQUIRE (compound == i::perfect::octave);
+		REQUIRE (compound < i::augmented::octave);
+		REQUIRE (compound > i::diminished::fourth);
+		REQUIRE (i::perfect::octave == compound);
+		REQUIRE (i::augmented::octave > compound);
+		REQUIRE (i::diminished::fourth < compound);
 	}
 }

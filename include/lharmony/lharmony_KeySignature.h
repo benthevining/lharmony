@@ -65,7 +65,6 @@ class Mode;
 
 	@ingroup lharmony_scales
 
-	@todo hasParallelKey()
 	@todo throw in constructor
 
 	@todo melodic minor? This adds complexity because the intervals are different if

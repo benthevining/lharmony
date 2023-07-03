@@ -33,26 +33,29 @@ set_target_properties (lharmony PROPERTIES DEBUG_POSTFIX -d VERSION "${lharmony_
 set (public_header include/lharmony/lharmony.h)
 
 set (
-    private_headers
-    include/lharmony/lharmony_Chord.h
+    util_headers
+    include/lharmony/lharmony_OvertoneSeries.h include/lharmony/lharmony_Pitch.h
+    include/lharmony/lharmony_PitchClass.h include/lharmony/lharmony_PitchUtils.h
+    include/lharmony/lharmony_ToneRow.h)
+
+set (
+    scales_headers
     include/lharmony/lharmony_Chromatic.h
-    include/lharmony/lharmony_CompoundInterval.h
-    include/lharmony/lharmony_CompoundInterval_impl.h
-    include/lharmony/lharmony_Interval.h
-    include/lharmony/lharmony_IntervalConstants.h
     include/lharmony/lharmony_KeySignature.h
     include/lharmony/lharmony_KeySignature_impl.h
     include/lharmony/lharmony_KeySignatureConstants.h
-    include/lharmony/lharmony_MicrotonalInterval.h
     include/lharmony/lharmony_Mode.h
     include/lharmony/lharmony_Octatonic.h
-    include/lharmony/lharmony_OvertoneSeries.h
-    include/lharmony/lharmony_Pitch.h
-    include/lharmony/lharmony_PitchClass.h
-    include/lharmony/lharmony_PitchUtils.h
     include/lharmony/lharmony_Scale.h
-    include/lharmony/lharmony_WholeTone.h
-    include/lharmony/lharmony_ToneRow.h)
+    include/lharmony/lharmony_WholeTone.h)
+
+set (
+    intervals_headers
+    include/lharmony/lharmony_CompoundInterval.h include/lharmony/lharmony_CompoundInterval_impl.h
+    include/lharmony/lharmony_Interval.h include/lharmony/lharmony_IntervalConstants.h
+    include/lharmony/lharmony_MicrotonalInterval.h)
+
+set (chords_headers include/lharmony/lharmony_Chord.h)
 
 set (generated_headers_dir "${CMAKE_CURRENT_BINARY_DIR}/generated/lharmony")
 
@@ -73,8 +76,10 @@ set (version_header "${generated_headers_dir}/lharmony_Version.h")
 configure_file ("${CMAKE_CURRENT_LIST_DIR}/cmake/version.in" "${version_header}" @ONLY
                 NEWLINE_STYLE UNIX)
 
-target_sources (lharmony # PUBLIC "${public_header}"
-                PRIVATE ${private_headers} "${export_header}" "${version_header}")
+target_sources (
+    lharmony # PUBLIC "${public_header}"
+    PRIVATE ${util_headers} ${scales_headers} ${intervals_headers} ${chords_headers}
+            "${export_header}" "${version_header}")
 
 target_include_directories (
     lharmony
@@ -82,14 +87,37 @@ target_include_directories (
            $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/generated>
            $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>)
 
-install (FILES "${public_header}" "${export_header}" "${version_header}" ${private_headers}
-         DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}/lharmony" COMPONENT lharmony_dev)
+install (
+    FILES "${public_header}"
+          "${export_header}"
+          "${version_header}"
+          ${util_headers}
+          ${scales_headers}
+          ${intervals_headers}
+          ${chords_headers}
+    DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}/lharmony"
+    COMPONENT lharmony_dev)
 
 if (WIN32)
     target_compile_definitions (lharmony PRIVATE NOMINMAX)
 endif ()
 
-add_subdirectory (src)
+set (util_sources src/lharmony_Pitch.cpp src/lharmony_PitchClass.cpp src/lharmony_ToneRow.cpp)
+
+set (scales_sources src/lharmony_Chromatic.cpp src/lharmony_KeySignature.cpp src/lharmony_Mode.cpp
+                    src/lharmony_Octatonic.cpp src/lharmony_Scale.cpp src/lharmony_WholeTone.cpp)
+
+set (intervals_sources src/lharmony_CompoundInterval.cpp src/lharmony_Interval.cpp)
+
+set (chords_sources src/lharmony_Chord.cpp)
+
+target_sources (lharmony PRIVATE ${util_sources} ${scales_sources} ${intervals_sources}
+                                 ${chords_sources})
+
+source_group (util FILES ${util_headers} ${util_sources})
+source_group (scales FILES ${scales_headers} ${scales_sources})
+source_group (intervals FILES ${intervals_headers} ${intervals_sources})
+source_group (chords FILES ${chords_headers} ${chords_sources})
 
 install (
     TARGETS lharmony

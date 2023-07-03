@@ -53,11 +53,11 @@ public:
 
 	///@}
 
-	WholeTone (const WholeTone&) = default;
-	WholeTone& operator=(const WholeTone&) = default;
+	WholeTone (const WholeTone&)			= default;
+	WholeTone& operator= (const WholeTone&) = default;
 
-	WholeTone (WholeTone&&) = default;
-	WholeTone& operator=(WholeTone&&) = default;
+	WholeTone (WholeTone&&)			   = default;
+	WholeTone& operator= (WholeTone&&) = default;
 
 	/** Returns true if the other whole tone %scale has the same root as this one. */
 	[[nodiscard]] bool operator== (const WholeTone& other) const;

@@ -65,11 +65,12 @@ class Mode;
 
 	@ingroup lharmony_scales
 
-	@todo hasParallelKey()
 	@todo throw in constructor
 
 	@todo melodic minor? This adds complexity because the intervals are different if
 	you're ascending or descending...
+
+	@todo getMediant(), getSubdominant()
  */
 class LHARM_EXPORT KeySignature final : public Scale
 {
@@ -120,11 +121,13 @@ public:
 
 	///@}
 
-	KeySignature (const KeySignature&) = default;
-	KeySignature& operator=(const KeySignature&) = default;
+	~KeySignature() final = default;
 
-	KeySignature (KeySignature&&) = default;
-	KeySignature& operator=(KeySignature&&) = default;
+	KeySignature (const KeySignature&)			  = default;
+	KeySignature& operator= (const KeySignature&) = default;
+
+	KeySignature (KeySignature&&)			 = default;
+	KeySignature& operator= (KeySignature&&) = default;
 
 	/** Returns true if the other key signature is semantically equivalent to this one. */
 	[[nodiscard]] constexpr bool operator== (const KeySignature& other) const noexcept;

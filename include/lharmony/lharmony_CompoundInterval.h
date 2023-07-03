@@ -37,8 +37,6 @@ class Pitch;
 
 	@ingroup lharmony_intervals
 	@see Interval, MicrotonalInterval
-
-	@todo static assertion tests
  */
 class LHARM_EXPORT CompoundInterval final : public Interval
 {
@@ -66,23 +64,27 @@ public:
 	[[nodiscard]] static CompoundInterval fromPitches (const Pitch& pitch1, const Pitch& pitch2) noexcept;
 	///@}
 
-	constexpr CompoundInterval (const CompoundInterval&) = default;
-	CompoundInterval& operator=(const CompoundInterval&) = default;
+	constexpr CompoundInterval (const CompoundInterval&)  = default;
+	CompoundInterval& operator= (const CompoundInterval&) = default;
 
-	constexpr CompoundInterval (CompoundInterval&&) = default;
-	CompoundInterval& operator=(CompoundInterval&&) = default;
+	constexpr CompoundInterval (CompoundInterval&&)	 = default;
+	CompoundInterval& operator= (CompoundInterval&&) = default;
 
 	/** Returns true if the two compound intervals are exactly equal; that is, have the same number of octaves, and their simple %interval components are exactly equal in kind and quality. */
 	[[nodiscard]] constexpr bool operator== (const CompoundInterval& other) const noexcept;
+	[[nodiscard]] bool operator== (const Interval& other) const noexcept;
 
 	/** Returns true if the two intervals are not exactly equal. */
 	[[nodiscard]] constexpr bool operator!= (const CompoundInterval& other) const noexcept;
+	[[nodiscard]] bool operator!= (const Interval& other) const noexcept;
 
 	/** Returns true if this %interval is semantically larger than the other one, taking enharmonic spellings into account. */
 	[[nodiscard]] constexpr bool operator> (const CompoundInterval& other) const noexcept;
+	[[nodiscard]] bool operator> (const Interval& other) const noexcept;
 
 	/** Returns true if this %interval is semantically smaller than the other one, taking enharmonic spellings into account. */
 	[[nodiscard]] constexpr bool operator<(const CompoundInterval& other) const noexcept;
+	[[nodiscard]] bool operator<(const Interval& other) const noexcept;
 
 	/** Returns the number of whole octaves contained in this compound %interval. */
 	[[nodiscard]] constexpr int getNumOctaves() const noexcept;
@@ -100,7 +102,7 @@ public:
 		For example, a major tenth and a major seventeenth would return true, because they are both compound major thirds.
 		@see getSimpleInterval()
 	 */
-	[[nodiscard]] constexpr bool hasSameSimpleInterval (const CompoundInterval& other) const noexcept;
+	[[nodiscard]] bool hasSameSimpleInterval (const CompoundInterval& other) const noexcept;
 
 	/** Returns the quality of this compound %interval.
 		The quality of compound intervals is determined by the quality of their simple %interval components; this is identical to calling:

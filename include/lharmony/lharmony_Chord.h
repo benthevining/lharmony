@@ -61,11 +61,11 @@ public:
 	explicit Chord (const std::initializer_list<Pitch>& midiNotes);
 	///@}
 
-	Chord (const Chord&) = default;
-	Chord& operator=(const Chord&) = default;
+	Chord (const Chord&)			= default;
+	Chord& operator= (const Chord&) = default;
 
-	Chord (Chord&&) = default;
-	Chord& operator=(Chord&&) = default;
+	Chord (Chord&&)			   = default;
+	Chord& operator= (Chord&&) = default;
 
 	/** Returns the number of unique pitches in this %chord. */
 	[[nodiscard]] int getNumPitches() const;

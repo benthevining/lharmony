@@ -39,49 +39,49 @@ namespace major
 {
 
 /** A C major scale. */
-LHARM_EXPORT static constexpr KeySignature c { 0, false, KeySignature::Type::Major };
+LHARM_EXPORT constexpr KeySignature c { 0, false, KeySignature::Type::Major };
 
 /** A C-sharp major scale. */
-LHARM_EXPORT static constexpr KeySignature cSharp { 7, true, KeySignature::Type::Major };
+LHARM_EXPORT constexpr KeySignature cSharp { 7, true, KeySignature::Type::Major };
 
 /** A C-flat major scale. */
-LHARM_EXPORT static constexpr KeySignature cFlat { 7, false, KeySignature::Type::Major };
+LHARM_EXPORT constexpr KeySignature cFlat { 7, false, KeySignature::Type::Major };
 
 /** A D major scale. */
-LHARM_EXPORT static constexpr KeySignature d { 2, true, KeySignature::Type::Major };
+LHARM_EXPORT constexpr KeySignature d { 2, true, KeySignature::Type::Major };
 
 /** A D-flat major scale. */
-LHARM_EXPORT static constexpr KeySignature dFlat { 5, false, KeySignature::Type::Major };
+LHARM_EXPORT constexpr KeySignature dFlat { 5, false, KeySignature::Type::Major };
 
 /** An E major scale. */
-LHARM_EXPORT static constexpr KeySignature e { 4, true, KeySignature::Type::Major };
+LHARM_EXPORT constexpr KeySignature e { 4, true, KeySignature::Type::Major };
 
 /** An E-flat major scale. */
-LHARM_EXPORT static constexpr KeySignature eFlat { 3, false, KeySignature::Type::Major };
+LHARM_EXPORT constexpr KeySignature eFlat { 3, false, KeySignature::Type::Major };
 
 /** An F major scale. */
-LHARM_EXPORT static constexpr KeySignature f { 1, false, KeySignature::Type::Major };
+LHARM_EXPORT constexpr KeySignature f { 1, false, KeySignature::Type::Major };
 
 /** An F-sharp major scale. */
-LHARM_EXPORT static constexpr KeySignature fSharp { 6, true, KeySignature::Type::Major };
+LHARM_EXPORT constexpr KeySignature fSharp { 6, true, KeySignature::Type::Major };
 
 /** A G major scale. */
-LHARM_EXPORT static constexpr KeySignature g { 1, true, KeySignature::Type::Major };
+LHARM_EXPORT constexpr KeySignature g { 1, true, KeySignature::Type::Major };
 
 /** A G-flat major scale. */
-LHARM_EXPORT static constexpr KeySignature gFlat { 6, false, KeySignature::Type::Major };
+LHARM_EXPORT constexpr KeySignature gFlat { 6, false, KeySignature::Type::Major };
 
 /** An A major scale. */
-LHARM_EXPORT static constexpr KeySignature a { 3, true, KeySignature::Type::Major };
+LHARM_EXPORT constexpr KeySignature a { 3, true, KeySignature::Type::Major };
 
 /** An A-flat major scale. */
-LHARM_EXPORT static constexpr KeySignature aFlat { 4, false, KeySignature::Type::Major };
+LHARM_EXPORT constexpr KeySignature aFlat { 4, false, KeySignature::Type::Major };
 
 /** A B major scale. */
-LHARM_EXPORT static constexpr KeySignature b { 5, true, KeySignature::Type::Major };
+LHARM_EXPORT constexpr KeySignature b { 5, true, KeySignature::Type::Major };
 
 /** A B-flat major scale. */
-LHARM_EXPORT static constexpr KeySignature bFlat { 2, false, KeySignature::Type::Major };
+LHARM_EXPORT constexpr KeySignature bFlat { 2, false, KeySignature::Type::Major };
 
 }  // namespace major
 
@@ -90,49 +90,49 @@ namespace natural_minor
 {
 
 /** A C minor scale. */
-LHARM_EXPORT static constexpr KeySignature c { 3, false, KeySignature::Type::NaturalMinor };
+LHARM_EXPORT constexpr KeySignature c { 3, false, KeySignature::Type::NaturalMinor };
 
 /** A C-sharp minor scale. */
-LHARM_EXPORT static constexpr KeySignature cSharp { 4, true, KeySignature::Type::NaturalMinor };
+LHARM_EXPORT constexpr KeySignature cSharp { 4, true, KeySignature::Type::NaturalMinor };
 
 /** A D minor scale. */
-LHARM_EXPORT static constexpr KeySignature d { 1, false, KeySignature::Type::NaturalMinor };
+LHARM_EXPORT constexpr KeySignature d { 1, false, KeySignature::Type::NaturalMinor };
 
 /** A D-sharp minor scale. */
-LHARM_EXPORT static constexpr KeySignature dSharp { 6, true, KeySignature::Type::NaturalMinor };
+LHARM_EXPORT constexpr KeySignature dSharp { 6, true, KeySignature::Type::NaturalMinor };
 
 /** An E minor scale. */
-LHARM_EXPORT static constexpr KeySignature e { 1, true, KeySignature::Type::NaturalMinor };
+LHARM_EXPORT constexpr KeySignature e { 1, true, KeySignature::Type::NaturalMinor };
 
 /** An E-flat minor scale. */
-LHARM_EXPORT static constexpr KeySignature eFlat { 6, false, KeySignature::Type::NaturalMinor };
+LHARM_EXPORT constexpr KeySignature eFlat { 6, false, KeySignature::Type::NaturalMinor };
 
 /** An F minor scale. */
-LHARM_EXPORT static constexpr KeySignature f { 4, false, KeySignature::Type::NaturalMinor };
+LHARM_EXPORT constexpr KeySignature f { 4, false, KeySignature::Type::NaturalMinor };
 
 /** An F-sharp minor scale. */
-LHARM_EXPORT static constexpr KeySignature fSharp { 3, true, KeySignature::Type::NaturalMinor };
+LHARM_EXPORT constexpr KeySignature fSharp { 3, true, KeySignature::Type::NaturalMinor };
 
 /** A G minor scale. */
-LHARM_EXPORT static constexpr KeySignature g { 2, false, KeySignature::Type::NaturalMinor };
+LHARM_EXPORT constexpr KeySignature g { 2, false, KeySignature::Type::NaturalMinor };
 
 /** A G-sharp minor scale. */
-LHARM_EXPORT static constexpr KeySignature gSharp { 5, true, KeySignature::Type::NaturalMinor };
+LHARM_EXPORT constexpr KeySignature gSharp { 5, true, KeySignature::Type::NaturalMinor };
 
 /** An A minor scale. */
-LHARM_EXPORT static constexpr KeySignature a { 0, false, KeySignature::Type::NaturalMinor };
+LHARM_EXPORT constexpr KeySignature a { 0, false, KeySignature::Type::NaturalMinor };
 
 /** An A-sharp minor scale. */
-LHARM_EXPORT static constexpr KeySignature aSharp { 7, true, KeySignature::Type::NaturalMinor };
+LHARM_EXPORT constexpr KeySignature aSharp { 7, true, KeySignature::Type::NaturalMinor };
 
 /** An A-flat minor scale. */
-LHARM_EXPORT static constexpr KeySignature aFlat { 7, false, KeySignature::Type::NaturalMinor };
+LHARM_EXPORT constexpr KeySignature aFlat { 7, false, KeySignature::Type::NaturalMinor };
 
 /** A B minor scale. */
-LHARM_EXPORT static constexpr KeySignature b { 2, true, KeySignature::Type::NaturalMinor };
+LHARM_EXPORT constexpr KeySignature b { 2, true, KeySignature::Type::NaturalMinor };
 
 /** A B-flat minor scale. */
-LHARM_EXPORT static constexpr KeySignature bFlat { 5, false, KeySignature::Type::NaturalMinor };
+LHARM_EXPORT constexpr KeySignature bFlat { 5, false, KeySignature::Type::NaturalMinor };
 
 }  // namespace natural_minor
 
@@ -144,49 +144,49 @@ namespace harmonic_minor
 {
 
 /** A C harmonic minor scale. */
-LHARM_EXPORT static constexpr KeySignature c { 3, false, KeySignature::Type::HarmonicMinor };
+LHARM_EXPORT constexpr KeySignature c { 3, false, KeySignature::Type::HarmonicMinor };
 
 /** A C-sharp harmonic minor scale. */
-LHARM_EXPORT static constexpr KeySignature cSharp { 4, true, KeySignature::Type::HarmonicMinor };
+LHARM_EXPORT constexpr KeySignature cSharp { 4, true, KeySignature::Type::HarmonicMinor };
 
 /** A D harmonic minor scale. */
-LHARM_EXPORT static constexpr KeySignature d { 1, false, KeySignature::Type::HarmonicMinor };
+LHARM_EXPORT constexpr KeySignature d { 1, false, KeySignature::Type::HarmonicMinor };
 
 /** A D-sharp harmonic minor scale. */
-LHARM_EXPORT static constexpr KeySignature dSharp { 6, true, KeySignature::Type::HarmonicMinor };
+LHARM_EXPORT constexpr KeySignature dSharp { 6, true, KeySignature::Type::HarmonicMinor };
 
 /** An E harmonic minor scale. */
-LHARM_EXPORT static constexpr KeySignature e { 1, true, KeySignature::Type::HarmonicMinor };
+LHARM_EXPORT constexpr KeySignature e { 1, true, KeySignature::Type::HarmonicMinor };
 
 /** An E-flat harmonic minor scale. */
-LHARM_EXPORT static constexpr KeySignature eFlat { 6, false, KeySignature::Type::HarmonicMinor };
+LHARM_EXPORT constexpr KeySignature eFlat { 6, false, KeySignature::Type::HarmonicMinor };
 
 /** An F harmonic minor scale. */
-LHARM_EXPORT static constexpr KeySignature f { 4, false, KeySignature::Type::HarmonicMinor };
+LHARM_EXPORT constexpr KeySignature f { 4, false, KeySignature::Type::HarmonicMinor };
 
 /** An F-sharp harmonic minor scale. */
-LHARM_EXPORT static constexpr KeySignature fSharp { 3, true, KeySignature::Type::HarmonicMinor };
+LHARM_EXPORT constexpr KeySignature fSharp { 3, true, KeySignature::Type::HarmonicMinor };
 
 /** A G harmonic minor scale. */
-LHARM_EXPORT static constexpr KeySignature g { 2, false, KeySignature::Type::HarmonicMinor };
+LHARM_EXPORT constexpr KeySignature g { 2, false, KeySignature::Type::HarmonicMinor };
 
 /** A G-sharp harmonic minor scale. */
-LHARM_EXPORT static constexpr KeySignature gSharp { 5, true, KeySignature::Type::HarmonicMinor };
+LHARM_EXPORT constexpr KeySignature gSharp { 5, true, KeySignature::Type::HarmonicMinor };
 
 /** An A harmonic minor scale. */
-LHARM_EXPORT static constexpr KeySignature a { 0, false, KeySignature::Type::HarmonicMinor };
+LHARM_EXPORT constexpr KeySignature a { 0, false, KeySignature::Type::HarmonicMinor };
 
 /** An A-sharp harmonic minor scale. */
-LHARM_EXPORT static constexpr KeySignature aSharp { 7, true, KeySignature::Type::HarmonicMinor };
+LHARM_EXPORT constexpr KeySignature aSharp { 7, true, KeySignature::Type::HarmonicMinor };
 
 /** An A-flat harmonic minor scale. */
-LHARM_EXPORT static constexpr KeySignature aFlat { 7, false, KeySignature::Type::HarmonicMinor };
+LHARM_EXPORT constexpr KeySignature aFlat { 7, false, KeySignature::Type::HarmonicMinor };
 
 /** A B harmonic minor scale. */
-LHARM_EXPORT static constexpr KeySignature b { 2, true, KeySignature::Type::HarmonicMinor };
+LHARM_EXPORT constexpr KeySignature b { 2, true, KeySignature::Type::HarmonicMinor };
 
 /** A B-flat harmonic minor scale. */
-LHARM_EXPORT static constexpr KeySignature bFlat { 5, false, KeySignature::Type::HarmonicMinor };
+LHARM_EXPORT constexpr KeySignature bFlat { 5, false, KeySignature::Type::HarmonicMinor };
 
 }  // namespace harmonic_minor
 

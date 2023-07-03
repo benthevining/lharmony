@@ -12,21 +12,10 @@
  * ======================================================================================
  */
 
-// IWYU pragma: private
-// IWYU pragma: friend lharmony_Interval.h
+#include <lharmony/lharmony.h>
+#include <iostream>
 
-#pragma once
-
-/** @file
-	This file contains implementation details for the \c Interval class.
-
-	@see lharmony_Interval.h
-	@ingroup lharmony_intervals
- */
-
-namespace limes::harmony
+int main (int, char**)
 {
-
-
-
-}  // namespace limes::harmony
+	std::cout << limes::harmony::semitonesInOctave;
+}

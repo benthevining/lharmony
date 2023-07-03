@@ -58,9 +58,4 @@ constexpr int CompoundInterval::getNumOctaves() const noexcept
 	return numOctaves;
 }
 
-constexpr bool CompoundInterval::hasSameSimpleInterval (const CompoundInterval& other) const noexcept
-{
-	return interval == other.interval;
-}
-
 }  // namespace limes::harmony

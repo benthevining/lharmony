@@ -79,11 +79,11 @@ public:
 
 	///@}
 
-	Mode (const Mode&) = default;
-	Mode& operator=(const Mode&) = default;
+	Mode (const Mode&)			  = default;
+	Mode& operator= (const Mode&) = default;
 
-	Mode (Mode&&) = default;
-	Mode& operator=(Mode&&) = default;
+	Mode (Mode&&)			 = default;
+	Mode& operator= (Mode&&) = default;
 
 	/** Returns true if the other modal %scale has the same type and root as this one. */
 	[[nodiscard]] constexpr bool operator== (const Mode& other) const noexcept

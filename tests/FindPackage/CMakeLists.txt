@@ -10,16 +10,14 @@
 #
 # ======================================================================================
 
-target_sources (
-	lharmony
-	PRIVATE lharmony_Chord.cpp
-			lharmony_Chromatic.cpp
-			lharmony_CompoundInterval.cpp
-			lharmony_Interval.cpp
-			lharmony_KeySignature.cpp
-			lharmony_Mode.cpp
-			lharmony_Octatonic.cpp
-			lharmony_Pitch.cpp
-			lharmony_PitchClass.cpp
-			lharmony_Scale.cpp
-			lharmony_WholeTone.cpp)
+cmake_minimum_required (VERSION 3.25 FATAL_ERROR)
+
+project (lharmony_findpackage_test VERSION 0.0.1 LANGUAGES CXX)
+
+find_package (lharmony REQUIRED)
+
+add_executable (test)
+
+target_sources (test PRIVATE main.cpp)
+
+target_link_libraries (test PRIVATE limes::lharmony)

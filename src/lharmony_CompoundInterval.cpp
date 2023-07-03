@@ -19,6 +19,7 @@
 #include "lharmony/lharmony_PitchUtils.h"
 #include "lharmony/lharmony_Interval.h"
 #include "lharmony/lharmony_CompoundInterval.h"
+#include "lharmony/lharmony_IntervalConstants.h"
 
 namespace limes::harmony
 {
@@ -77,6 +78,29 @@ CompoundInterval CompoundInterval::fromPitches (int midiPitch1, int midiPitch2) 
 	return CompoundInterval { std::abs (midiPitch2 - midiPitch1) };
 }
 
+bool CompoundInterval::operator== (const Interval& other) const noexcept
+{
+	if (other == intervals::perfect::octave)
+		return numOctaves == 1 && interval == intervals::perfect::unison;
+
+	return getSimpleInterval() == other && getNumSemitones() == other.getNumSemitones();
+}
+
+bool CompoundInterval::operator!= (const Interval& other) const noexcept
+{
+	return ! (*this == other);
+}
+
+bool CompoundInterval::operator> (const Interval& other) const noexcept
+{
+	return getSimpleInterval() > other || getNumSemitones() > other.getNumSemitones();
+}
+
+bool CompoundInterval::operator<(const Interval& other) const noexcept
+{
+	return getSimpleInterval() < other || getNumSemitones() < other.getNumSemitones();
+}
+
 Interval CompoundInterval::getSimpleInterval() const noexcept
 {
 	return interval;
@@ -120,6 +144,11 @@ Interval::Quality CompoundInterval::getQuality() const noexcept
 int CompoundInterval::getNumSemitones() const noexcept
 {
 	return interval.getNumSemitones() + (numOctaves * semitonesInOctave);
+}
+
+bool CompoundInterval::hasSameSimpleInterval (const CompoundInterval& other) const noexcept
+{
+	return interval == other.interval;
 }
 
 }  // namespace limes::harmony

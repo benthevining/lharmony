@@ -87,13 +87,6 @@ repos:
     always_run: true
     pass_filenames: false
 
-    # only .json files allowed in cmake/presets/
-  - id: json-xtn-in-toolchain-dir
-    name: Ensure only .json files in cmake/presets/
-    entry: Files in the cmake/presets/ directory must have the .json extension
-    language: fail
-    files: cmake/presets/.*(?<!\.json)$
-
     # only .yml files allowed in .github/workflows/
   - id: yml-xtn-in-workflow-dir
     name: Ensure only .yml files in .github/workflows/
@@ -108,15 +101,15 @@ repos:
     # we have to run this step once for each different comment-style
   - id: insert-license
     name: Insert license header in C++ source files
-    args: [--license-filepath=config/limes_header.txt, --comment-style=/*| *| */, --detect-license-in-X-top-lines=16]
+    args: [--license-filepath=linfra/config/limes_header.txt, --comment-style=/*| *| */, --detect-license-in-X-top-lines=16]
     types_or: [c, c++]
   - id: insert-license
     name: Insert license header in CMake and shell files
-    args: [--license-filepath=config/limes_header.txt, --comment-style=#, --detect-license-in-X-top-lines=16]
+    args: [--license-filepath=linfra/config/limes_header.txt, --comment-style=#, --detect-license-in-X-top-lines=16]
     types_or: [cmake, shell, python, yaml, toml, ini]
   - id: insert-license
     name: Insert license header in other config files
-    args: [--license-filepath=config/limes_header.txt, --comment-style=#, --detect-license-in-X-top-lines=16]
+    args: [--license-filepath=linfra/config/limes_header.txt, --comment-style=#, --detect-license-in-X-top-lines=16]
     files: .envrc|.tool-versions|.bumpversion.cfg|.editorconfig|.gitignore|.gitattributes|.clang-format|.clang-tidy|.pre-commit-config.yaml
 
 # C++ formatting & linting
@@ -155,9 +148,9 @@ repos:
   rev: v0.6.13
   hooks:
   - id: cmake-format
-    args: [--config-files, config/.cmake-format.json, --in-place]
+    args: [--config-files, linfra/config/.cmake-format.json, --in-place]
   - id: cmake-lint
-    args: [--config-files, config/.cmake-format.json, --disabled-codes, E1120]
+    args: [--config-files, linfra/config/.cmake-format.json, --disabled-codes, E1120]
     log_file: logs/pre-commit/cmake-lint.log
 
 # General
@@ -176,7 +169,6 @@ repos:
   - id: detect-private-key
   - id: end-of-file-fixer
   - id: fix-byte-order-marker
-  - id: forbid-submodules
   - id: mixed-line-ending
     args: [--fix=lf]
   - id: pretty-format-json
@@ -198,13 +190,18 @@ repos:
   - id: markdownlint-fix
     args: [--disable, MD033, MD010, MD013]
     # exclude: CHANGELOG.md
+- repo: https://github.com/codingjoe/relint
+  rev: 3.0.0
+  hooks:
+  - id: relint
+    args: [-c, linfra/config/.relint.yml]
+    log_file: logs/pre-commit/relint.log
+    verbose: true
 
   # various other formatters
 - repo: https://github.com/macisamuele/language-formatters-pre-commit-hooks.git
   rev: v2.9.0
   hooks:
-  - id: pretty-format-ini
-    args: [--autofix]
   - id: pretty-format-yaml
     args: [--autofix, --preserve-quotes]
 
@@ -225,7 +222,7 @@ repos:
   rev: v0.19.1
   hooks:
   - id: gitlint
-    args: [--config, config/.gitlint, --msg-filename]
+    args: [--config, linfra/config/.gitlint, --msg-filename]
     always_run: true
 - repo: https://github.com/jumanjihouse/pre-commit-hooks.git
   rev: 3.0.0
@@ -238,7 +235,7 @@ repos:
   rev: 2.7.2
   hooks:
   - id: editorconfig-checker
-    args: [-ignore-defaults, -config, config/.ecrc]
+    args: [-ignore-defaults, -config, linfra/config/.ecrc]
 
 # sign commit
 - repo: https://github.com/mattlqx/pre-commit-sign

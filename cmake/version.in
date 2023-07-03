@@ -1,0 +1,9 @@
+#pragma once
+
+#define LHARM_VERSION_MAJOR @lharmony_VERSION_MAJOR@
+
+#define LHARM_VERSION_MINOR @lharmony_VERSION_MINOR@
+
+#define LHARM_VERSION_PATCH @lharmony_VERSION_PATCH@
+
+#define LHARM_VERSION "@lharmony_VERSION@"

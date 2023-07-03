@@ -33,3 +33,13 @@ updates:
     include: scope
   reviewers:
   - benthevining
+
+- package-ecosystem: gitsubmodule
+  directory: /
+  schedule:
+    interval: daily
+  commit-message:
+    prefix: chore(deps) [skip ci]
+    include: scope
+  reviewers:
+  - benthevining

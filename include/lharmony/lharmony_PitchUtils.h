@@ -56,7 +56,7 @@ LHARM_EXPORT constinit const auto semitonesInOctave = 12;
 
 	@see lowestNoteOfMidiOctave
  */
-LHARM_EXPORT static inline int octaveNumberOfMidiNote (int midiNote) noexcept
+LHARM_EXPORT inline int octaveNumberOfMidiNote (int midiNote) noexcept
 {
 	return static_cast<int> (std::floor (static_cast<float> (midiNote) / 12.f - 1.f));
 }
@@ -113,7 +113,7 @@ LHARM_EXPORT constexpr int highestNoteOfMidiOctave (int octaveNumber) noexcept
 
 /** A utility concept that specifies the type must be an arithmetic type.
  */
-template<typename T>
+template <typename T>
 concept ArithmeticType = std::is_arithmetic_v<T>;
 
 /** Converts a MIDI note to a frequency in Hz.

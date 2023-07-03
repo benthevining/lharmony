@@ -21,7 +21,7 @@
 namespace limes::harmony
 {
 
-template<ArithmeticType T>
+template <ArithmeticType T>
 [[nodiscard]] static inline int round (T input) noexcept
 {
 	return static_cast<int> (std::round (input));

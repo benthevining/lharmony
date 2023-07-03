@@ -18,7 +18,7 @@
 #include "lharmony/lharmony_Interval.h"
 #include "lharmony/lharmony_Pitch.h"
 #include "lharmony/lharmony_PitchUtils.h"
-#include "lharmony/lharmony_Interval_impl.h"
+#include "lharmony/lharmony_CompoundInterval.h"
 
 namespace limes::harmony
 {
@@ -42,7 +42,7 @@ Interval::Interval (int kindToUse, Quality qualityToUse)
 }
 
 Interval::Interval() noexcept
-: Interval (0, Quality::Perfect)
+	: Interval (0, Quality::Perfect)
 {
 }
 
@@ -56,9 +56,19 @@ bool Interval::operator== (const Interval& other) const noexcept
 	return kind == other.kind && quality == other.quality;
 }
 
+bool Interval::operator== (const CompoundInterval& other) const noexcept
+{
+	return other == *this;
+}
+
 bool Interval::operator!= (const Interval& other) const noexcept
 {
 	return ! (*this == other);
+}
+
+bool Interval::operator!= (const CompoundInterval& other) const noexcept
+{
+	return other != *this;
 }
 
 Interval& Interval::operator++() noexcept
@@ -301,12 +311,22 @@ bool Interval::operator> (const Interval& other) const noexcept
 	return kind > other.kind;
 }
 
+bool Interval::operator> (const CompoundInterval& other) const noexcept
+{
+	return *this > other.getSimpleInterval() || getNumSemitones() > other.getNumSemitones();
+}
+
 bool Interval::operator<(const Interval& other) const noexcept
 {
 	if (getNumSemitones() < other.getNumSemitones())
 		return true;
 
 	return kind < other.kind;
+}
+
+bool Interval::operator< (const CompoundInterval& other) const noexcept
+{
+	return *this < other.getSimpleInterval() || getNumSemitones() < other.getNumSemitones();
 }
 
 Interval::Quality Interval::getQuality() const noexcept
@@ -370,7 +390,7 @@ std::string Interval::getStringDescription (bool useShort) const
 {
 	std::stringstream stream;
 
-	stream << qualityToString (quality, useShort);
+	stream << qualityToString (quality, useShort) << ' ';
 
 	if (useShort)
 	{
@@ -410,7 +430,7 @@ int Interval::getNumSemitones() const noexcept
 			case (Quality::Minor) : return baseSemitones - 1;
 			case (Quality::Augmented) : return baseSemitones + 1;
 			case (Quality::Diminished) : return baseSemitones - 2;
-			default: return 0; // unreachable
+			default : return 0;	 // unreachable
 		}
 	};
 
@@ -421,7 +441,7 @@ int Interval::getNumSemitones() const noexcept
 			case (Quality::Perfect) : return baseSemitones;
 			case (Quality::Augmented) : return baseSemitones + 1;
 			case (Quality::Diminished) : return baseSemitones - 1;
-			default: return 0; // unreachable
+			default : return 0;	 // unreachable
 		}
 	};
 

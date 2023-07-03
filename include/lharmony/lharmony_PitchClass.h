@@ -53,7 +53,7 @@ namespace limes::harmony
 	@ingroup limes_harmony
 	@see Pitch
 
-	@todo to/from string
+	@todo from string
 	@todo get solfege syllable
 	@todo provide literals?
  */
@@ -64,13 +64,16 @@ struct LHARM_EXPORT PitchClass final
 	constexpr explicit PitchClass (int midiPitch) noexcept
 		: pitchClass (midiPitch % semitonesInOctave)
 	{
+			// TODO: why doesn't the modulo above always take care of this??
+			if (pitchClass < 0)
+				pitchClass += semitonesInOctave;
 	}
 
-	constexpr PitchClass (const PitchClass&) = default;
-	constexpr PitchClass& operator=(const PitchClass&) = default;
+	constexpr PitchClass (const PitchClass&)			= default;
+	constexpr PitchClass& operator= (const PitchClass&) = default;
 
-	constexpr PitchClass (PitchClass&&) = default;
-	constexpr PitchClass& operator=(PitchClass&&) = default;
+	constexpr PitchClass (PitchClass&&)			   = default;
+	constexpr PitchClass& operator= (PitchClass&&) = default;
 
 	/** Returns true if the two %pitch classes are equal. */
 	[[nodiscard]] constexpr bool operator== (const PitchClass& other) const noexcept
@@ -90,10 +93,20 @@ struct LHARM_EXPORT PitchClass final
 		return *this;
 	}
 
+	constexpr PitchClass operator+ (int numSemitones) const noexcept
+	{
+		return PitchClass { (pitchClass + numSemitones) % semitonesInOctave };
+	}
+
 	constexpr PitchClass& operator-= (int numSemitones) noexcept
 	{
 		pitchClass = (pitchClass - numSemitones) % semitonesInOctave;
 		return *this;
+	}
+
+	constexpr PitchClass operator- (int numSemitones) const noexcept
+	{
+		return PitchClass { (pitchClass - numSemitones) % semitonesInOctave };
 	}
 
 	/** Returns true if this %pitch class represents a black key on a standard keyboard. */

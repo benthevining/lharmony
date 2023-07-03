@@ -16,7 +16,7 @@
 
 #include "lharmony/lharmony_Export.h"
 #include "lharmony/lharmony_Pitch.h"
-#include "lharmony/lharmony_Interval.h"
+#include "lharmony/lharmony_CompoundInterval.h"
 
 /** @file
 	This file defines the OvertoneSeries class.
@@ -30,8 +30,6 @@ namespace limes::harmony
 
 	@ingroup limes_harmony
 
-	@todo write unit tests
-
 	@todo UndertoneSeries class
  */
 struct LHARM_EXPORT OvertoneSeries final
@@ -44,20 +42,40 @@ public:
 	/** Returns this overtone series's fundamental pitch. */
 	[[nodiscard]] constexpr Pitch getFundamental() const noexcept { return fundamental; }
 
-	/** Returns a specified harmonic of this overtone series.
-		@todo support microtunings?
-	 */
-	[[nodiscard]] constexpr Pitch getHarmonic (size_t degree) const noexcept
+	/** Returns a specified harmonic of this overtone series. */
+	[[nodiscard]] inline Pitch getHarmonic (size_t degree) const noexcept
 	{
-		return Pitch::fromFreq (fundamental.getFreqHz() * static_cast<double> (degree));
+		if (degree == 0UL)
+			return fundamental;
+
+		const auto degFactor = static_cast<double>(degree) + 1.;
+
+		return Pitch::fromFreq (fundamental.getFreqHz() * degFactor);
+	}
+
+	inline Pitch operator[](size_t degree) const noexcept
+	{
+		return getHarmonic (degree);
 	}
 
 	/** Returns an Interval object representing the distance from the fundamental
 		frequency to the pitch of the given harmonic in the series.
 	 */
-	[[nodiscard]] inline Interval getIntervalOfHarmonic (size_t degree) const noexcept
+	[[nodiscard]] inline CompoundInterval getIntervalOfHarmonic (size_t degree) const noexcept
 	{
-		return Interval::fromPitches (fundamental, getHarmonic (degree));
+		return CompoundInterval::fromPitches (fundamental, getHarmonic (degree));
+	}
+
+	/** Returns true if these two OvertoneSeries objects have the same fundamental. */
+	bool operator==(const OvertoneSeries& other) const noexcept
+	{
+		return fundamental == other.fundamental;
+	}
+
+	/** Returns true if these two OvertoneSeries objects do not have the same fundamental. */
+	bool operator!=(const OvertoneSeries& other) const noexcept
+	{
+		return fundamental != other.fundamental;
 	}
 
 private:
